@@ -37,6 +37,9 @@ public class OpenBCIConnection : MonoBehaviour {
 	public string chan = "8";
 	public string freq = "250";
 
+	public static string exMsg = "";
+	public static string[] ports;
+
 	// receiving Thread
 	Thread receiveThread;
 
@@ -44,6 +47,18 @@ public class OpenBCIConnection : MonoBehaviour {
 	void Start()
 	{
 //		init ();//start thread
+
+		// Get a list of serial port names.
+		ports = SerialPort.GetPortNames();
+
+		Debug.Log("The following serial ports were found:");
+		
+		// Display each port name to the console.
+		foreach(string port in ports)
+		{
+			Debug.Log("port: " + port);
+		}
+
 
 	}
 
@@ -81,13 +96,20 @@ public class OpenBCIConnection : MonoBehaviour {
 	{
 		sp = new SerialPort(comport, int.Parse(baudrate));
 		repeatrate = 1 / float.Parse(freq);
-		
-		sp.Open();
-		sp.ReadTimeout = 5;
-		sp.WriteLine("x");
-		InvokeRepeating("readData", 0.1f, repeatrate);//250Hz
-//		receiveThread.Start();
-		Debug.Log("start acquisition");
+
+		try{
+			sp.Open();
+			sp.ReadTimeout = 5;
+			sp.WriteLine("x");
+			InvokeRepeating("readData", 0.1f, repeatrate);//250Hz
+	//		receiveThread.Start();
+			Debug.Log("start acquisition");
+				exMsg = "";
+		}
+		catch(Exception ex){
+			Debug.Log(ex);
+			exMsg = ex.ToString();
+				}
 
 	}
 	
@@ -98,10 +120,18 @@ public class OpenBCIConnection : MonoBehaviour {
 		
 		if (sp.IsOpen)
 		{
-			sp.WriteLine("s");
-			sp.Close();
-			Debug.Log("stop acquisition");
+			try{
+				sp.WriteLine("s");
+				sp.Close();
+				Debug.Log("stop acquisition");
+				exMsg = "";
+			}
+			catch(Exception ex){
+				Debug.Log(ex);
+				exMsg = ex.ToString();
+			}
 		}
+
 	}
 	
 	void readData()
@@ -260,6 +290,17 @@ public class OpenBCIConnection : MonoBehaviour {
 					}
 				}
 				
+			}
+
+			GUI.Label(new Rect(Screen.width/2-150, Screen.height/2+120, 500, 50), exMsg);
+
+
+			GUI.Label(new Rect(30, 260, 500, 50), "The following serial ports were found:");
+			int offset = 0;
+			foreach(string port in ports)
+			{
+				GUI.Label(new Rect(30, 290+offset, 500, 50), port);
+				offset = offset+20;
 			}
 
 			
