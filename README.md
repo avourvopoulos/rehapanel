@@ -1,3 +1,3 @@
 # README #
 
-Made with: Unity v4.6.5
+![Unity Version](https://img.shields.io/badge/Unity%20Version-4.6-orange.svg)
