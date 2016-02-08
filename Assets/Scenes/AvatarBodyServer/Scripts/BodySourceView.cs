@@ -147,12 +147,12 @@ public class BodySourceView : MonoBehaviour
             Transform jointObj = bodyObject.transform.FindChild(jt.ToString());
             // here
             Vector3 floorNormal;
-            floorNormal.x = _BodyManager.floor.X;
-            floorNormal.y = _BodyManager.floor.Y;
-            floorNormal.z = _BodyManager.floor.Z;
+            floorNormal.x = _BodyManager.Floor.X;
+            floorNormal.y = _BodyManager.Floor.Y;
+            floorNormal.z = _BodyManager.Floor.Z;
 
             var rotFromFloortoKinect = Quaternion.FromToRotation(floorNormal, Vector3.up);
-            Vector3 floorPos = new Vector3(_BodyManager.floor.X * _BodyManager.floor.W, _BodyManager.floor.Y * _BodyManager.floor.W, _BodyManager.floor.Z * _BodyManager.floor.W);
+            Vector3 floorPos = new Vector3(_BodyManager.Floor.X * _BodyManager.Floor.W, _BodyManager.Floor.Y * _BodyManager.Floor.W, _BodyManager.Floor.Z * _BodyManager.Floor.W);
             jointObj.localPosition = GetVector3FromJoint(sourceJoint) + floorPos;
             jointObj.localPosition = rotFromFloortoKinect * jointObj.localPosition;
             jointObj.localPosition = jointObj.localPosition + _InterfaceManager.stickmanRoot;
