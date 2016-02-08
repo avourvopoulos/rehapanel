@@ -7,7 +7,7 @@ public class BodySourceManager : MonoBehaviour
     private KinectSensor _Sensor;
     private BodyFrameReader _Reader;
     private Body[] _Data = null;
-    public Windows.Kinect.Vector4 floor { get; private set; }
+    public Windows.Kinect.Vector4 Floor { get; private set; }
 
     public Body[] GetData()
     {
@@ -44,7 +44,7 @@ public class BodySourceManager : MonoBehaviour
                 }
 
                 frame.GetAndRefreshBodyData(_Data);
-                floor = frame.FloorClipPlane;
+                Floor = frame.FloorClipPlane;
 
                 frame.Dispose();
                 frame = null;
