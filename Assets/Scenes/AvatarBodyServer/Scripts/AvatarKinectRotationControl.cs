@@ -132,13 +132,13 @@ public class AvatarKinectRotationControl : MonoBehaviour
                 transform.eulerAngles = new Vector3(euler1, euler2, euler3);
                 transform.Rotate(Vector3.up * 180, Space.World);
 
-                Vector3 floorNormal;
-                floorNormal.x = _BodyManager.floor.X;
-                floorNormal.y = _BodyManager.floor.Y;
-                floorNormal.z = _BodyManager.floor.Z;
+                //Vector3 floorNormal;
+                //floorNormal.x = _BodyManager.Floor.X;
+                //floorNormal.y = _BodyManager.Floor.Y;
+                //floorNormal.z = _BodyManager.Floor.Z;
 
-                var rotFromKinectoFloor = Quaternion.FromToRotation(Vector3.up, floorNormal);
-                transform.rotation = transform.rotation * rotFromKinectoFloor;
+                //var rotFromKinectoFloor = Quaternion.FromToRotation(Vector3.up, floorNormal);
+                //transform.rotation = transform.rotation * rotFromKinectoFloor;
             }
         }
     }
