@@ -58,16 +58,17 @@ public class AvatarKinectPositionControl : MonoBehaviour
 
             if (body.IsTracked)
             {
-                Vector3 floorNormal;
-                floorNormal.x = _BodyManager.floor.X;
-                floorNormal.y = _BodyManager.floor.Y;
-                floorNormal.z = _BodyManager.floor.Z;
+                //Vector3 floorNormal;
+                //floorNormal.x = _BodyManager.Floor.X;
+                //floorNormal.y = _BodyManager.Floor.Y;
+                //floorNormal.z = _BodyManager.Floor.Z;
 
-                var rotFromFloortoKinect = Quaternion.FromToRotation(floorNormal, Vector3.up);
-                Vector3 floorPos = new Vector3(_BodyManager.floor.X * _BodyManager.floor.W, _BodyManager.floor.Y * _BodyManager.floor.W, _BodyManager.floor.Z * _BodyManager.floor.W);
-                transform.localPosition = GetVector3FromJoint(body.Joints[jointType]) + floorPos;
-                transform.localPosition = rotFromFloortoKinect * transform.localPosition;
-                transform.localPosition = transform.localPosition + _InterfaceManager.avatarRoot + new Vector3(0, 0.15f, 0);
+                //var rotFromFloortoKinect = Quaternion.FromToRotation(floorNormal, Vector3.up);
+                //Vector3 floorPos = new Vector3(_BodyManager.Floor.X * _BodyManager.Floor.W, _BodyManager.Floor.Y * _BodyManager.Floor.W, _BodyManager.Floor.Z * _BodyManager.Floor.W);
+                //transform.localPosition = GetVector3FromJoint(body.Joints[jointType]) + floorPos;
+                //transform.localPosition = rotFromFloortoKinect * transform.localPosition;
+                transform.localPosition = GetVector3FromJoint(body.Joints[jointType]);
+                //transform.localPosition = transform.localPosition + _InterfaceManager.avatarRoot + new Vector3(0, 0.15f, 0);
             }
         }
     }
