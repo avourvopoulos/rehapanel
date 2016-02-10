@@ -11,23 +11,23 @@ using Windows.Kinect;
 
 public class UDPServer : MonoBehaviour
 {
-    UdpClient sender;
-    public int localPort = 1201;
-    public int remotePort = 1202;
+    //UdpClient sender;
+    //public int localPort = 1201;
+    //public int remotePort = 1202;
     //public string ipAddress = "192.168.10.101";
 
     public GameObject BodySourceManager;
-    private BodySourceManager _BodyManager;
+    private BodySourceManager _bodyManager;
 
-    public GameObject userInterface;
+    public GameObject UserInterface;
     private UserInterface _userInterface;
 
     public GameObject AvatarCarl;
 
     public float WriteFrequency = 30f;
-    private bool first = true;
+    private bool _first = true;
 
-	private KinectSensor _Sensor;
+	private KinectSensor _sensor;
 
     //string fileName = "udp_debug.txt";
     //StreamWriter sr;
@@ -100,21 +100,18 @@ public class UDPServer : MonoBehaviour
         //IPEndPoint groupEP = new IPEndPoint(IPAddress.Broadcast, remotePort);
         //IPEndPoint groupEP = new IPEndPoint(IPAddress.Parse(ipAddress), remotePort);
         //sender.Connect(groupEP);
-        _userInterface = userInterface.GetComponent<UserInterface>();
+        _userInterface = UserInterface.GetComponent<UserInterface>();
         //t1 = UnityEngine.Time.time;
         InvokeRepeating("SendData", 0.1f, 1f / WriteFrequency);
     }
     
 	void Update()
 	{
-		_Sensor = KinectSensor.GetDefault();
+		_sensor = KinectSensor.GetDefault();
 		
-		if (_Sensor != null) {
-						if (_Sensor.IsOpen)
-								_userInterface.ipGo = true;
-						else
-								_userInterface.ipGo = false;
-				}
+		if (_sensor != null)
+            _userInterface.ipGo = _sensor.IsOpen;
+
 	}
 
     void OnApplicationQuit()
@@ -135,11 +132,11 @@ public class UDPServer : MonoBehaviour
 
         if (_userInterface.ipGo)
         {
-            if (first)
+            if (_first)
             {
 //                IPEndPoint groupEP = new IPEndPoint(IPAddress.Parse(_userInterface.ipAddress), remotePort);
 //               sender.Connect(groupEP);
-                first = false;
+                _first = false;
             }
 
             if (BodySourceManager == null)
@@ -147,21 +144,44 @@ public class UDPServer : MonoBehaviour
                 return;
             }
 
-            _BodyManager = BodySourceManager.GetComponent<BodySourceManager>();
-            if (_BodyManager == null)
+            _bodyManager = BodySourceManager.GetComponent<BodySourceManager>();
+            if (_bodyManager == null)
             {
                 return;
             }
 
-            Kinect.Body[] data = _BodyManager.GetData();
+            Kinect.Body[] data = _bodyManager.GetData();
             if (data == null)
             {
                 return;
             }
 
-            string Message = "";
+            string message = "";
+
+            //Finds which body is closer to the Kinect
+            int closestBodyIndex = 0;
+            Single distance = 10000; //10m or 10 000 m? doesn't matter just has to be big
+            int bodyindex = 0;
             foreach (var body in data)
             {
+                bodyindex = bodyindex + 1;
+                if (body == null)
+                    continue;
+
+                if (body.IsTracked)
+                {
+                    if (distance > AvatarCarl.transform.Find(AvatarJoint[Kinect.JointType.SpineBase]).rotation.z)
+                    {
+                        closestBodyIndex = bodyindex - 1;
+                    }
+                    distance = AvatarCarl.transform.Find(AvatarJoint[Kinect.JointType.SpineBase]).rotation.z;
+                }
+            }
+
+            bodyindex = 0;
+            foreach (var body in data)
+            {
+                bodyindex = bodyindex + 1;
                 if (body == null)
                 {
                     continue;
@@ -170,50 +190,28 @@ public class UDPServer : MonoBehaviour
                 if (body.IsTracked)
                 {
                     //// Sending the tracked body id:
-                    //Message = "[$]" + "tracking," + "[$$]" + "kinectv2," + "[$$$]" + "trackingid," + body.TrackingId.ToString() + ";";
-                    //sender.Send(Encoding.ASCII.GetBytes(Message), Message.Length);
-                    ////print(Message);
+                    //message = "[$]" + "tracking," + "[$$]" + "kinectv2," + "[$$$]" + "trackingid," + body.TrackingId.ToString() + ";";
+                    //sender.Send(Encoding.ASCII.GetBytes(message), message.Length);
+                    ////print(message);
 
-					Message = Message + "[$]" + "tracking," + "[$$]" + "kinect," + "[$$$]" + "index," + "number," + body.TrackingId.ToString()+";";
+					message = message + "[$]" + "tracking," + "[$$]" + "kinect," + "[$$$]" + "index," + "number," + body.TrackingId.ToString()+";";
 
 //					Debug.Log(body.TrackingId.ToString());
 
                     foreach (Kinect.JointType joint in Enum.GetValues(typeof(Kinect.JointType)))
                     {
-                        // Sending the tracked body joint orientation in kinect v1 format:
-                        if (AvatarJoint.ContainsKey(joint) && KinectV1Joint.ContainsKey(joint))
-                        {
-                            Message = Message + "[$]" + "tracking," + "[$$]" + "kinect," + "[$$$]";
-                            Message = Message + KinectV1Joint[joint] + ",";
-                            Message = Message + "rotation,";
-                            Message = Message + AvatarCarl.transform.Find(AvatarJoint[joint]).rotation.x + ",";
-                            Message = Message + AvatarCarl.transform.Find(AvatarJoint[joint]).rotation.y + ",";
-                            Message = Message + AvatarCarl.transform.Find(AvatarJoint[joint]).rotation.z + ",";
-                            Message = Message + AvatarCarl.transform.Find(AvatarJoint[joint]).rotation.w + ";";
-                            //sender.Send(Encoding.ASCII.GetBytes(Message), Message.Length);
-                            //print(Message);
-                        }
-                        // Sending the tracked body joint position in kinect v1 format:
-                        if (AvatarJoint.ContainsKey(joint) && KinectV1Joint.ContainsKey(joint))// && KinectV1Joint[joint] == "waist")
-                        {
-                            //Message = "";
-                            Message = Message + "[$]" + "tracking," + "[$$]" + "kinect," + "[$$$]";
-                            Message = Message + KinectV1Joint[joint] + ",";
-                            Message = Message + "position,";
-                            Message = Message + AvatarCarl.transform.Find(AvatarJoint[joint]).position.x + ",";
-                            Message = Message + AvatarCarl.transform.Find(AvatarJoint[joint]).position.y + ",";
-                            Message = Message + AvatarCarl.transform.Find(AvatarJoint[joint]).position.z + ";";
-                            //sender.Send(Encoding.ASCII.GetBytes(Message), Message.Length);
-                            //print(Message);
-                        }
+                        message = JointMensage(joint, message, "kinect,");
+                        //todo: the false must be changed to a variable that is true when the body in qustion is the target player
+                        if (closestBodyIndex == bodyindex - 1)
+                            message = JointMensage(joint, message, "kinect,detected,");
                     }
                 }
             }
 
-            //if (Message != "")
+            //if (message != "")
             //{
-            //    sr.WriteLine(Message);
-            //    //print(Message.Length);
+            //    sr.WriteLine(message);
+            //    //print(message.Length);
             //}
 			if(!DevicesLists.availableDev.Contains("KINECT2:TRACKING:JOINTS:ALL"))
 			{
@@ -221,13 +219,44 @@ public class UDPServer : MonoBehaviour
 			}
 			if(DevicesLists.selectedDev.Contains("KINECT2:TRACKING:JOINTS:ALL") && UDPData.flag==true)
 			{					
-				UDPData.sendString(Message);
-			//	Debug.Log(Message);
+				UDPData.sendString(message);
+			//	Debug.Log(message);
 			}	
 
-            //sender.Send(Encoding.ASCII.GetBytes(Message), Message.Length);
+            //sender.Send(Encoding.ASCII.GetBytes(message), message.Length);
         }
 
 
+    }
+
+    private string JointMensage(JointType joint, string message, string device)
+    {
+        // Sending the tracked body joint orientation in kinect v1 format:
+        if (AvatarJoint.ContainsKey(joint) && KinectV1Joint.ContainsKey(joint))
+        {
+            message = message + "[$]" + "tracking," + "[$$]" + device + "[$$$]";
+            message = message + KinectV1Joint[joint] + ",";
+            message = message + "rotation,";
+            message = message + AvatarCarl.transform.Find(AvatarJoint[joint]).rotation.x + ",";
+            message = message + AvatarCarl.transform.Find(AvatarJoint[joint]).rotation.y + ",";
+            message = message + AvatarCarl.transform.Find(AvatarJoint[joint]).rotation.z + ",";
+            message = message + AvatarCarl.transform.Find(AvatarJoint[joint]).rotation.w + ";";
+            //sender.Send(Encoding.ASCII.GetBytes(message), message.Length);
+            //print(message);
+        }
+        // Sending the tracked body joint position in kinect v1 format:
+        if (AvatarJoint.ContainsKey(joint) && KinectV1Joint.ContainsKey(joint)) // && KinectV1Joint[joint] == "waist")
+        {
+            //message = "";
+            message = message + "[$]" + "tracking," + "[$$]" + device + "[$$$]";
+            message = message + KinectV1Joint[joint] + ",";
+            message = message + "position,";
+            message = message + AvatarCarl.transform.Find(AvatarJoint[joint]).position.x + ",";
+            message = message + AvatarCarl.transform.Find(AvatarJoint[joint]).position.y + ",";
+            message = message + AvatarCarl.transform.Find(AvatarJoint[joint]).position.z + ";";
+            //sender.Send(Encoding.ASCII.GetBytes(message), message.Length);
+            //print(message);
+        }
+        return message;
     }
 }
