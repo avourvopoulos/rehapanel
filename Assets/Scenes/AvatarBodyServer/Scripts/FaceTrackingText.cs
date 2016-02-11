@@ -40,6 +40,7 @@ public class FaceTrackingText : MonoBehaviour
             return;
         }
 
+        //Todo: make it specific for individual faces
         foreach (var face in dataFace)
         {
             if (face == null)
