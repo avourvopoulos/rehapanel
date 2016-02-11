@@ -11044,7 +11044,7 @@ Transform:
   - {fileID: 2082910876}
   - {fileID: 2010538}
   m_Father: {fileID: 1165541328}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!111 &437070239
 Animation:
   m_ObjectHideFlags: 0
@@ -11161,7 +11161,7 @@ Transform:
   - {fileID: 974920311}
   - {fileID: 1084437899}
   m_Father: {fileID: 1165541328}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!1 &443628600
 GameObject:
   m_ObjectHideFlags: 0
@@ -17295,6 +17295,75 @@ MonoBehaviour:
   jointType: 6
   BodySourceManager: {fileID: 897587524}
   BodyIndex: 2
+--- !u!1 &781386148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 781386149}
+  - 33: {fileID: 781386152}
+  - 135: {fileID: 781386151}
+  - 23: {fileID: 781386150}
+  m_Layer: 0
+  m_Name: Sphere
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &781386149
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 781386148}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 31.3863945, y: -3.02383137, z: 198.018585}
+  m_LocalScale: {x: 1, y: 10, z: 6.65999985}
+  m_Children: []
+  m_Father: {fileID: 1165541328}
+  m_RootOrder: 0
+--- !u!23 &781386150
+Renderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 781386148}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!135 &781386151
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 781386148}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: .5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &781386152
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 781386148}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &783277786
 GameObject:
   m_ObjectHideFlags: 0
@@ -19510,7 +19579,7 @@ Transform:
   - {fileID: 2123351433}
   - {fileID: 1543891246}
   m_Father: {fileID: 1165541328}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!111 &918162329
 Animation:
   m_ObjectHideFlags: 0
@@ -21154,7 +21223,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BodySourceManager: {fileID: 897587524}
   UserInterface: {fileID: 422323119}
-  AvatarCarl: {fileID: 1443899461}
+  AvatarCarl:
+  - {fileID: 1443899461}
+  - {fileID: 1913116787}
+  - {fileID: 1336077790}
+  - {fileID: 1188560561}
+  - {fileID: 437070237}
+  - {fileID: 918162327}
+  SelectedIndicator: {fileID: 781386148}
   WriteFrequency: 50
 --- !u!1 &1011392993
 GameObject:
@@ -24265,6 +24341,7 @@ Transform:
   m_LocalPosition: {x: -3.56599998, y: -1.801, z: 1.74287796}
   m_LocalScale: {x: .300000012, y: .0299999993, z: .0500000007}
   m_Children:
+  - {fileID: 781386149}
   - {fileID: 1443899462}
   - {fileID: 1913116788}
   - {fileID: 1336077791}
@@ -24617,7 +24694,7 @@ Transform:
   - {fileID: 994074112}
   - {fileID: 619788248}
   m_Father: {fileID: 1165541328}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!111 &1188560563
 Animation:
   m_ObjectHideFlags: 0
@@ -28087,7 +28164,7 @@ Transform:
   - {fileID: 1514422276}
   - {fileID: 1834836615}
   m_Father: {fileID: 1165541328}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!111 &1336077792
 Animation:
   m_ObjectHideFlags: 0
@@ -30009,7 +30086,7 @@ Transform:
   - {fileID: 1597362028}
   - {fileID: 72157097}
   m_Father: {fileID: 1165541328}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!111 &1443899463
 Animation:
   m_ObjectHideFlags: 0
@@ -38993,7 +39070,7 @@ Transform:
   - {fileID: 2016112868}
   - {fileID: 253840662}
   m_Father: {fileID: 1165541328}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!111 &1913116789
 Animation:
   m_ObjectHideFlags: 0

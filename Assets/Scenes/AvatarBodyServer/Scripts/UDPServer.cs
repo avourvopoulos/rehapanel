@@ -22,8 +22,9 @@ public class UDPServer : MonoBehaviour
     public GameObject UserInterface;
     private UserInterface _userInterface;
 
-    //todo: make this a vector of Carls
-    public GameObject AvatarCarl;
+    public GameObject[] AvatarCarl;
+
+    public GameObject SelectedIndicator;
 
     public float WriteFrequency = 30f;
     private bool _first = true;
@@ -201,9 +202,10 @@ public class UDPServer : MonoBehaviour
 
                     foreach (Kinect.JointType joint in Enum.GetValues(typeof(Kinect.JointType)))
                     {
-                        message = JointMensage(joint, message, "kinect,");
+                        message = JointMensage(joint, message, "kinect,", bodyindex);
                         if (closestBodyIndex == bodyindex - 1)
-                            message = JointMensage(joint, message, "kinectdetected,");
+                            SelectedIndicator.transform.position = AvatarCarl[bodyindex - 1].transform.Find(AvatarJoint[Kinect.JointType.Head]).position;
+                            message = JointMensage(joint, message, "kinectdetected,", bodyindex);
                     }
                 }
             }
@@ -229,7 +231,7 @@ public class UDPServer : MonoBehaviour
 
     }
 
-    private string JointMensage(JointType joint, string message, string device)
+    private string JointMensage(JointType joint, string message, string device, int bodyindex)
     {
         // Sending the tracked body joint orientation in kinect v1 format:
         if (AvatarJoint.ContainsKey(joint) && KinectV1Joint.ContainsKey(joint))
@@ -237,10 +239,10 @@ public class UDPServer : MonoBehaviour
             message = message + "[$]" + "tracking," + "[$$]" + device + "[$$$]";
             message = message + KinectV1Joint[joint] + ",";
             message = message + "rotation,";
-            message = message + AvatarCarl.transform.Find(AvatarJoint[joint]).rotation.x + ",";
-            message = message + AvatarCarl.transform.Find(AvatarJoint[joint]).rotation.y + ",";
-            message = message + AvatarCarl.transform.Find(AvatarJoint[joint]).rotation.z + ",";
-            message = message + AvatarCarl.transform.Find(AvatarJoint[joint]).rotation.w + ";";
+            message = message + AvatarCarl[bodyindex - 1].transform.Find(AvatarJoint[joint]).rotation.x + ",";
+            message = message + AvatarCarl[bodyindex - 1].transform.Find(AvatarJoint[joint]).rotation.y + ",";
+            message = message + AvatarCarl[bodyindex - 1].transform.Find(AvatarJoint[joint]).rotation.z + ",";
+            message = message + AvatarCarl[bodyindex - 1].transform.Find(AvatarJoint[joint]).rotation.w + ";";
             //sender.Send(Encoding.ASCII.GetBytes(message), message.Length);
             //print(message);
         }
@@ -251,9 +253,9 @@ public class UDPServer : MonoBehaviour
             message = message + "[$]" + "tracking," + "[$$]" + device + "[$$$]";
             message = message + KinectV1Joint[joint] + ",";
             message = message + "position,";
-            message = message + AvatarCarl.transform.Find(AvatarJoint[joint]).position.x + ",";
-            message = message + AvatarCarl.transform.Find(AvatarJoint[joint]).position.y + ",";
-            message = message + AvatarCarl.transform.Find(AvatarJoint[joint]).position.z + ";";
+            message = message + AvatarCarl[bodyindex - 1].transform.Find(AvatarJoint[joint]).position.x + ",";
+            message = message + AvatarCarl[bodyindex - 1].transform.Find(AvatarJoint[joint]).position.y + ",";
+            message = message + AvatarCarl[bodyindex - 1].transform.Find(AvatarJoint[joint]).position.z + ";";
             //sender.Send(Encoding.ASCII.GetBytes(message), message.Length);
             //print(message);
         }
