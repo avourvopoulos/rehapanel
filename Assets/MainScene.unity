@@ -2493,7 +2493,7 @@ MonoBehaviour:
   jointType: 0
   BodySourceManager: {fileID: 897587524}
   UserInterfaceManager: {fileID: 422323119}
-  bodyIndex: 5
+  BodyIndex: 4
 --- !u!1 &2729491
 GameObject:
   m_ObjectHideFlags: 0
@@ -3689,7 +3689,7 @@ MonoBehaviour:
   jointType: 0
   BodySourceManager: {fileID: 897587524}
   UserInterfaceManager: {fileID: 422323119}
-  bodyIndex: 1
+  BodyIndex: 0
 --- !u!1 &72231226
 GameObject:
   m_ObjectHideFlags: 0
@@ -7755,7 +7755,7 @@ MonoBehaviour:
   jointType: 0
   BodySourceManager: {fileID: 897587524}
   UserInterfaceManager: {fileID: 422323119}
-  bodyIndex: 2
+  BodyIndex: 1
 --- !u!1 &254959498
 GameObject:
   m_ObjectHideFlags: 0
@@ -13605,7 +13605,7 @@ MonoBehaviour:
   jointType: 0
   BodySourceManager: {fileID: 897587524}
   UserInterfaceManager: {fileID: 422323119}
-  bodyIndex: 4
+  BodyIndex: 3
 --- !u!1 &624626625
 GameObject:
   m_ObjectHideFlags: 0
@@ -31775,7 +31775,7 @@ MonoBehaviour:
   jointType: 0
   BodySourceManager: {fileID: 897587524}
   UserInterfaceManager: {fileID: 422323119}
-  bodyIndex: 6
+  BodyIndex: 5
 --- !u!1 &1546640260
 GameObject:
   m_ObjectHideFlags: 0
@@ -37308,7 +37308,7 @@ MonoBehaviour:
   jointType: 0
   BodySourceManager: {fileID: 897587524}
   UserInterfaceManager: {fileID: 422323119}
-  bodyIndex: 3
+  BodyIndex: 2
 --- !u!1 &1835018657
 GameObject:
   m_ObjectHideFlags: 0

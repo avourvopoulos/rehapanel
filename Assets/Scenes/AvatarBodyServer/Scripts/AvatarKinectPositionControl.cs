@@ -9,8 +9,8 @@ public class AvatarKinectPositionControl : MonoBehaviour
     public Kinect.JointType jointType;
     public GameObject BodySourceManager;
     public GameObject UserInterfaceManager;
-    [Range(1, 6)]
-    public int bodyIndex;
+    [Range(0, 5)]
+    public int BodyIndex;
 
     private BodySourceManager _BodyManager;
     private UserInterface _InterfaceManager;
@@ -37,27 +37,20 @@ public class AvatarKinectPositionControl : MonoBehaviour
             return;
         }
 
-        List<ulong> trackedIds = new List<ulong>();
-        foreach (var body in data)
+        var body = data[BodyIndex];
+        //List<ulong> trackedIds = new List<ulong>();
+        //{
+        //    if (body != null)
+        //    {
+        //        if (body.IsTracked)
+        //        {
+        //            trackedIds.Add(body.TrackingId);
+        //        }
+        //    }
+        //}
+
+        if (body != null)
         {
-            if (body == null)
-            {
-                continue;
-            }
-
-            if (body.IsTracked)
-            {
-                trackedIds.Add(body.TrackingId);
-            }
-        }
-
-        foreach (var body in data)
-        {
-            if (body == null)
-            {
-                continue;
-            }
-
             if (body.IsTracked)
             {
                 //Vector3 floorNormal;
@@ -72,7 +65,16 @@ public class AvatarKinectPositionControl : MonoBehaviour
                 transform.localPosition = GetVector3FromJoint(body.Joints[jointType]);
                 //transform.localPosition = transform.localPosition + _InterfaceManager.avatarRoot + new Vector3(0, 0.15f, 0);
             }
+            else
+            {
+                transform.localPosition = new Vector3(0, 0, 50);
+            }
         }
+        else
+        {
+            transform.localPosition = new Vector3(0, 0, 50);
+        }
+
     }
 
     private float LimitAngleDomain(float angle)
