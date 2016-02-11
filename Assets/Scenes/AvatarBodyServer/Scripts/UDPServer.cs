@@ -203,7 +203,7 @@ public class UDPServer : MonoBehaviour
                     {
                         message = JointMensage(joint, message, "kinect,");
                         if (closestBodyIndex == bodyindex - 1)
-                            message = JointMensage(joint, message, "kinect,detected,");
+                            message = JointMensage(joint, message, "kinectdetected,");
                     }
                 }
             }
