@@ -22,6 +22,7 @@ public class UDPServer : MonoBehaviour
     public GameObject UserInterface;
     private UserInterface _userInterface;
 
+    //todo: make this a vector of Carls
     public GameObject AvatarCarl;
 
     public float WriteFrequency = 30f;
@@ -108,8 +109,8 @@ public class UDPServer : MonoBehaviour
 	void Update()
 	{
 		_sensor = KinectSensor.GetDefault();
-		
-		if (_sensor != null)
+
+        if (_sensor != null)
             _userInterface.ipGo = _sensor.IsOpen;
 
 	}
@@ -201,7 +202,6 @@ public class UDPServer : MonoBehaviour
                     foreach (Kinect.JointType joint in Enum.GetValues(typeof(Kinect.JointType)))
                     {
                         message = JointMensage(joint, message, "kinect,");
-                        //todo: the false must be changed to a variable that is true when the body in qustion is the target player
                         if (closestBodyIndex == bodyindex - 1)
                             message = JointMensage(joint, message, "kinect,detected,");
                     }

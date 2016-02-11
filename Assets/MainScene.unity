@@ -12298,10 +12298,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb95533c3b3c1124b9a4416f660aebce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  localPort: 1201
-  remotePort: 1202
   BodySourceManager: {fileID: 897587524}
-  userInterface: {fileID: 422323119}
+  UserInterface: {fileID: 422323119}
   AvatarCarl: {fileID: 1443899461}
   WriteFrequency: 50
 --- !u!1 &1014605651
@@ -13775,6 +13773,7 @@ Transform:
   m_LocalScale: {x: .300000012, y: .0299999993, z: .0500000007}
   m_Children:
   - {fileID: 1443899462}
+  - {fileID: 1190206438}
   m_Father: {fileID: 1426688710}
   m_RootOrder: 0
 --- !u!114 &1165541329
@@ -13982,11 +13981,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1190206437}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.36102033, y: -1.2663691, z: 6.04966688}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: .683265507, y: 17.8210316, z: 86.1357803}
+  m_LocalScale: {x: 3.33333325, y: 33.3333359, z: 20}
   m_Children: []
-  m_Father: {fileID: 1426688710}
-  m_RootOrder: 9
+  m_Father: {fileID: 1165541328}
+  m_RootOrder: 1
 --- !u!114 &1190206439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15594,7 +15593,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1426688710}
-  m_RootOrder: 10
+  m_RootOrder: 9
 --- !u!114 &1312972602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16818,7 +16817,6 @@ Transform:
   - {fileID: 1886850100}
   - {fileID: 86886069}
   - {fileID: 1009486399}
-  - {fileID: 1190206438}
   - {fileID: 1312972601}
   m_Father: {fileID: 0}
   m_RootOrder: 28
