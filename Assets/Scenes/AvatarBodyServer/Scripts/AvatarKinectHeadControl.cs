@@ -34,6 +34,9 @@ public class AvatarKinectHeadControl : MonoBehaviour
     public GameObject BodySourceManager;
     private BodySourceManager _BodyManager;
 
+    [Range(0, 5)]
+    public int BodyIndex;
+
     // Use this for initialization
     void Start()
     {
@@ -64,12 +67,9 @@ public class AvatarKinectHeadControl : MonoBehaviour
             return;
         }
 
-        foreach (var face in dataFace)
+        var face = dataFace[BodyIndex];
+        if (face != null)
         {
-            if (face == null)
-            {
-                continue;
-            }
             Quaternion quat = new Quaternion(face.FaceRotationQuaternion.X, face.FaceRotationQuaternion.Y, face.FaceRotationQuaternion.Z, face.FaceRotationQuaternion.W);
 
             switch (unityAxisX)
