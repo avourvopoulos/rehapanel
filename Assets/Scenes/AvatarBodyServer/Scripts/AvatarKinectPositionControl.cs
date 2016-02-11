@@ -9,6 +9,8 @@ public class AvatarKinectPositionControl : MonoBehaviour
     public Kinect.JointType jointType;
     public GameObject BodySourceManager;
     public GameObject UserInterfaceManager;
+    [Range(1, 6)]
+    public int bodyIndex;
 
     private BodySourceManager _BodyManager;
     private UserInterface _InterfaceManager;
