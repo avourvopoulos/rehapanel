@@ -32,6 +32,8 @@ public class AvatarKinectRotationControl : MonoBehaviour
     public Kinect.JointType jointType;
     public GameObject BodySourceManager;
     private BodySourceManager _BodyManager;
+    [Range(0, 5)]
+    public int BodyIndex;
 
     // Use this for initialization
     void Start()
@@ -61,27 +63,23 @@ public class AvatarKinectRotationControl : MonoBehaviour
             return;
         }
 
-        List<ulong> trackedIds = new List<ulong>();
-        foreach (var body in data)
-        {
-            if (body == null)
-            {
-                continue;
-            }
+        var body = data[BodyIndex];
+        //List<ulong> trackedIds = new List<ulong>();
+        //foreach (var body in data)
+        //{
+        //    if (body == null)
+        //    {
+        //        continue;
+        //    }
 
-            if (body.IsTracked)
-            {
-                trackedIds.Add(body.TrackingId);
-            }
-        }
+        //    if (body.IsTracked)
+        //    {
+        //        trackedIds.Add(body.TrackingId);
+        //    }
+        //}
 
-        foreach (var body in data)
+        if (body != null)
         {
-            if (body == null)
-            {
-                continue;
-            }
-            
             if (body.IsTracked)
             {
                 Kinect.JointOrientation orientation = body.JointOrientations[jointType];

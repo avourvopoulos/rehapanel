@@ -2479,6 +2479,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 0
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 4
 --- !u!114 &2010540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2614,6 +2615,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 6
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 4
 --- !u!1 &7462053
 GameObject:
   m_ObjectHideFlags: 0
@@ -3119,6 +3121,7 @@ MonoBehaviour:
   unityAxisZ: 2
   FaceSourceManager: {fileID: 2120797357}
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 0
 --- !u!1 &43982242
 GameObject:
   m_ObjectHideFlags: 0
@@ -3170,6 +3173,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 20
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 1
 --- !u!1 &45356498
 GameObject:
   m_ObjectHideFlags: 0
@@ -3285,6 +3289,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 9
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 2
 --- !u!1 &50992719
 GameObject:
   m_ObjectHideFlags: 0
@@ -3675,6 +3680,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 0
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 0
 --- !u!114 &72157099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3823,6 +3829,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 10
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 0
 --- !u!1 &79131562
 GameObject:
   m_ObjectHideFlags: 0
@@ -4121,6 +4128,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 1
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 0
 --- !u!1001 &89499882
 Prefab:
   m_ObjectHideFlags: 0
@@ -4741,6 +4749,7 @@ MonoBehaviour:
   unityAxisZ: 2
   FaceSourceManager: {fileID: 2120797357}
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 3
 --- !u!1 &93807385
 GameObject:
   m_ObjectHideFlags: 0
@@ -4959,6 +4968,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 4
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 2
 --- !u!1 &100877269
 GameObject:
   m_ObjectHideFlags: 0
@@ -5290,6 +5300,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 9
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 3
 --- !u!1 &113946358
 GameObject:
   m_ObjectHideFlags: 0
@@ -5598,6 +5609,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 9
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 1
 --- !u!1 &127368094
 GameObject:
   m_ObjectHideFlags: 0
@@ -6278,6 +6290,7 @@ MonoBehaviour:
   unityAxisZ: 2
   FaceSourceManager: {fileID: 2120797357}
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 2
 --- !u!1 &152164233
 GameObject:
   m_ObjectHideFlags: 0
@@ -6781,6 +6794,7 @@ MonoBehaviour:
   unityAxisZ: 0
   jointType: 14
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 3
 --- !u!1 &174236530
 GameObject:
   m_ObjectHideFlags: 0
@@ -6925,6 +6939,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 4
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 4
 --- !u!1 &203246227
 GameObject:
   m_ObjectHideFlags: 0
@@ -6976,6 +6991,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 9
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 4
 --- !u!1 &203747109
 GameObject:
   m_ObjectHideFlags: 0
@@ -7326,6 +7342,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 11
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 5
 --- !u!1 &226525630
 GameObject:
   m_ObjectHideFlags: 0
@@ -7632,6 +7649,7 @@ MonoBehaviour:
   unityAxisZ: 0
   jointType: 18
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 4
 --- !u!1 &249025948
 GameObject:
   m_ObjectHideFlags: 0
@@ -7741,6 +7759,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 0
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 1
 --- !u!114 &253840664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7891,6 +7910,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 8
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 1
 --- !u!1 &270974289
 GameObject:
   m_ObjectHideFlags: 0
@@ -9320,6 +9340,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 10
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 2
 --- !u!1 &343952961
 GameObject:
   m_ObjectHideFlags: 0
@@ -9875,6 +9896,7 @@ MonoBehaviour:
   unityAxisZ: 0
   jointType: 13
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 2
 --- !u!1 &377709081
 GameObject:
   m_ObjectHideFlags: 0
@@ -10349,6 +10371,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 2
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 0
 --- !u!1 &403916618
 GameObject:
   m_ObjectHideFlags: 0
@@ -10721,6 +10744,7 @@ MonoBehaviour:
   unityAxisZ: 0
   jointType: 18
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 0
 --- !u!1 &413411987
 GameObject:
   m_ObjectHideFlags: 0
@@ -10835,6 +10859,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 1
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 2
 --- !u!1 &418393839
 GameObject:
   m_ObjectHideFlags: 0
@@ -11103,6 +11128,7 @@ MonoBehaviour:
   unityAxisZ: 2
   FaceSourceManager: {fileID: 2120797357}
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 4
 --- !u!1 &443628600
 GameObject:
   m_ObjectHideFlags: 0
@@ -11303,6 +11329,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 10
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 3
 --- !u!1001 &452982937
 Prefab:
   m_ObjectHideFlags: 0
@@ -12095,6 +12122,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 10
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 1
 --- !u!1 &525045238
 GameObject:
   m_ObjectHideFlags: 0
@@ -12606,6 +12634,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 2
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 2
 --- !u!1 &557057973
 GameObject:
   m_ObjectHideFlags: 0
@@ -12657,6 +12686,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 9
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 0
 --- !u!1 &557293230
 GameObject:
   m_ObjectHideFlags: 0
@@ -12812,6 +12842,7 @@ MonoBehaviour:
   unityAxisZ: 0
   jointType: 17
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 0
 --- !u!1 &563870344
 GameObject:
   m_ObjectHideFlags: 0
@@ -13196,6 +13227,7 @@ MonoBehaviour:
   unityAxisZ: 0
   jointType: 13
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 0
 --- !u!1 &591836226
 GameObject:
   m_ObjectHideFlags: 0
@@ -13274,6 +13306,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 8
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 0
 --- !u!1 &597838539
 GameObject:
   m_ObjectHideFlags: 0
@@ -13325,6 +13358,7 @@ MonoBehaviour:
   unityAxisZ: 0
   jointType: 18
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 5
 --- !u!1 &599030336
 GameObject:
   m_ObjectHideFlags: 0
@@ -13408,6 +13442,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 11
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 1
 --- !u!1 &609127609
 GameObject:
   m_ObjectHideFlags: 0
@@ -13459,6 +13494,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 5
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 5
 --- !u!1 &609346155
 GameObject:
   m_ObjectHideFlags: 0
@@ -13510,6 +13546,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 4
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 3
 --- !u!1 &618999790
 GameObject:
   m_ObjectHideFlags: 0
@@ -13591,6 +13628,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 0
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 3
 --- !u!114 &619788250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13693,6 +13731,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 7
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 5
 --- !u!1 &627591497
 GameObject:
   m_ObjectHideFlags: 0
@@ -14046,6 +14085,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 10
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 5
 --- !u!1 &649728635
 GameObject:
   m_ObjectHideFlags: 0
@@ -14125,6 +14165,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 1
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 5
 --- !u!1 &659166024
 GameObject:
   m_ObjectHideFlags: 0
@@ -15298,6 +15339,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 4
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 1
 --- !u!1 &689572556
 GameObject:
   m_ObjectHideFlags: 0
@@ -16910,6 +16952,7 @@ MonoBehaviour:
   unityAxisZ: 0
   jointType: 14
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 1
 --- !u!1 &773327012
 GameObject:
   m_ObjectHideFlags: 0
@@ -17134,6 +17177,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 6
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 2
 --- !u!1 &783277786
 GameObject:
   m_ObjectHideFlags: 0
@@ -17528,6 +17572,7 @@ MonoBehaviour:
   unityAxisZ: 0
   jointType: 14
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 0
 --- !u!1 &806292898
 GameObject:
   m_ObjectHideFlags: 0
@@ -17781,6 +17826,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 4
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 5
 --- !u!1 &827375745
 GameObject:
   m_ObjectHideFlags: 0
@@ -18274,6 +18320,7 @@ MonoBehaviour:
   unityAxisZ: 0
   jointType: 18
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 2
 --- !u!1 &848098415
 GameObject:
   m_ObjectHideFlags: 0
@@ -18380,6 +18427,7 @@ MonoBehaviour:
   unityAxisZ: 0
   jointType: 13
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 1
 --- !u!1 &860309177
 GameObject:
   m_ObjectHideFlags: 0
@@ -18458,6 +18506,7 @@ MonoBehaviour:
   unityAxisZ: 0
   jointType: 13
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 4
 --- !u!1 &863200179
 GameObject:
   m_ObjectHideFlags: 0
@@ -18509,6 +18558,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 20
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 3
 --- !u!1 &868434820
 GameObject:
   m_ObjectHideFlags: 0
@@ -18911,6 +18961,7 @@ MonoBehaviour:
   unityAxisZ: 0
   jointType: 18
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 1
 --- !u!1 &890176615
 GameObject:
   m_ObjectHideFlags: 0
@@ -19284,6 +19335,7 @@ MonoBehaviour:
   unityAxisZ: 0
   jointType: 14
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 4
 --- !u!1 &914496190
 GameObject:
   m_ObjectHideFlags: 0
@@ -20048,6 +20100,7 @@ MonoBehaviour:
   unityAxisZ: 0
   jointType: 17
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 1
 --- !u!1 &972181300
 GameObject:
   m_ObjectHideFlags: 0
@@ -20342,6 +20395,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 11
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 4
 --- !u!1 &992464214
 GameObject:
   m_ObjectHideFlags: 0
@@ -20899,6 +20953,7 @@ MonoBehaviour:
   unityAxisZ: 0
   jointType: 17
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 4
 --- !u!1 &1009486398
 GameObject:
   m_ObjectHideFlags: 0
@@ -21150,6 +21205,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 9
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 5
 --- !u!1 &1019652498
 GameObject:
   m_ObjectHideFlags: 0
@@ -21284,6 +21340,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 5
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 3
 --- !u!1 &1026454396
 GameObject:
   m_ObjectHideFlags: 0
@@ -21657,6 +21714,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 11
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 3
 --- !u!1 &1053338191
 GameObject:
   m_ObjectHideFlags: 0
@@ -21777,6 +21835,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 20
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 0
 --- !u!1 &1060702419
 GameObject:
   m_ObjectHideFlags: 0
@@ -21987,6 +22046,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 2
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 3
 --- !u!1 &1077144504
 GameObject:
   m_ObjectHideFlags: 0
@@ -22457,6 +22517,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 8
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 5
 --- !u!1 &1088171393
 GameObject:
   m_ObjectHideFlags: 0
@@ -22704,6 +22765,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 2
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 5
 --- !u!1 &1107861185
 GameObject:
   m_ObjectHideFlags: 0
@@ -23221,6 +23283,7 @@ MonoBehaviour:
   unityAxisZ: 0
   jointType: 13
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 3
 --- !u!1 &1153850882
 GameObject:
   m_ObjectHideFlags: 0
@@ -24098,6 +24161,7 @@ MonoBehaviour:
   unityAxisZ: 0
   jointType: 18
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 3
 --- !u!1 &1171492394
 GameObject:
   m_ObjectHideFlags: 0
@@ -24178,6 +24242,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 2
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 4
 --- !u!1 &1185021694
 GameObject:
   m_ObjectHideFlags: 0
@@ -24662,6 +24727,7 @@ MonoBehaviour:
   unityAxisZ: 2
   FaceSourceManager: {fileID: 2120797357}
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 1
 --- !u!1 &1210029377
 GameObject:
   m_ObjectHideFlags: 0
@@ -25562,6 +25628,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 20
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 5
 --- !u!1 &1236872614
 GameObject:
   m_ObjectHideFlags: 0
@@ -25781,6 +25848,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 5
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 2
 --- !u!1 &1252995490
 GameObject:
   m_ObjectHideFlags: 0
@@ -26051,6 +26119,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 5
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 4
 --- !u!1 &1267516495
 GameObject:
   m_ObjectHideFlags: 0
@@ -26421,6 +26490,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 6
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 1
 --- !u!1 &1284075436
 GameObject:
   m_ObjectHideFlags: 0
@@ -26489,6 +26559,7 @@ MonoBehaviour:
   unityAxisZ: 2
   FaceSourceManager: {fileID: 2120797357}
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 5
 --- !u!1 &1284138404
 GameObject:
   m_ObjectHideFlags: 0
@@ -27866,6 +27937,7 @@ MonoBehaviour:
   unityAxisZ: 0
   jointType: 17
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 5
 --- !u!1 &1342581652
 GameObject:
   m_ObjectHideFlags: 0
@@ -28557,6 +28629,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 8
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 3
 --- !u!1 &1373133083
 GameObject:
   m_ObjectHideFlags: 0
@@ -29076,6 +29149,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 7
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 4
 --- !u!1 &1403844988
 GameObject:
   m_ObjectHideFlags: 0
@@ -29241,6 +29315,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 1
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 3
 --- !u!1 &1414427893
 GameObject:
   m_ObjectHideFlags: 0
@@ -29757,6 +29832,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 1
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 1
 --- !u!1 &1449487054
 GameObject:
   m_ObjectHideFlags: 0
@@ -29896,6 +29972,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 11
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 2
 --- !u!1 &1455859222
 GameObject:
   m_ObjectHideFlags: 0
@@ -30334,6 +30411,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 10
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 4
 --- !u!1 &1479397793
 GameObject:
   m_ObjectHideFlags: 0
@@ -30554,6 +30632,7 @@ MonoBehaviour:
   unityAxisZ: 0
   jointType: 17
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 3
 --- !u!1 &1486955780
 GameObject:
   m_ObjectHideFlags: 0
@@ -30637,6 +30716,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 11
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 0
 --- !u!1 &1488311088
 GameObject:
   m_ObjectHideFlags: 0
@@ -31089,6 +31169,7 @@ MonoBehaviour:
   unityAxisZ: 0
   jointType: 14
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 2
 --- !u!1 &1498377956
 GameObject:
   m_ObjectHideFlags: 0
@@ -31680,6 +31761,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 1
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 4
 --- !u!1 &1541843934
 GameObject:
   m_ObjectHideFlags: 0
@@ -31761,6 +31843,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 0
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 5
 --- !u!114 &1543891248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32337,6 +32420,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 2
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 1
 --- !u!1 &1580192543
 GameObject:
   m_ObjectHideFlags: 0
@@ -32903,6 +32987,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 7
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 1
 --- !u!1 &1605288882
 GameObject:
   m_ObjectHideFlags: 0
@@ -33036,6 +33121,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 8
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 2
 --- !u!1 &1624497277
 GameObject:
   m_ObjectHideFlags: 0
@@ -33275,6 +33361,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 6
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 5
 --- !u!1 &1629508262
 GameObject:
   m_ObjectHideFlags: 0
@@ -33654,6 +33741,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 8
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 4
 --- !u!1 &1654160488
 GameObject:
   m_ObjectHideFlags: 0
@@ -34555,6 +34643,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 6
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 0
 --- !u!1 &1707197973
 GameObject:
   m_ObjectHideFlags: 0
@@ -34661,6 +34750,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 4
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 0
 --- !u!1 &1709242085
 GameObject:
   m_ObjectHideFlags: 0
@@ -34740,6 +34830,7 @@ MonoBehaviour:
   unityAxisZ: 0
   jointType: 13
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 5
 --- !u!1 &1721240133
 GameObject:
   m_ObjectHideFlags: 0
@@ -34979,6 +35070,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 6
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 3
 --- !u!1 &1743171277
 GameObject:
   m_ObjectHideFlags: 0
@@ -36210,6 +36302,7 @@ MonoBehaviour:
   unityAxisZ: 0
   jointType: 14
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 5
 --- !u!1001 &1804053254
 Prefab:
   m_ObjectHideFlags: 0
@@ -37294,6 +37387,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 0
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 2
 --- !u!114 &1834836617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37415,6 +37509,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 20
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 4
 --- !u!1 &1838899444
 GameObject:
   m_ObjectHideFlags: 0
@@ -38127,6 +38222,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 7
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 2
 --- !u!1 &1877685467
 GameObject:
   m_ObjectHideFlags: 0
@@ -40399,6 +40495,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 5
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 0
 --- !u!1 &1960358851
 GameObject:
   m_ObjectHideFlags: 0
@@ -40850,6 +40947,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 5
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 1
 --- !u!1 &2003959740
 GameObject:
   m_ObjectHideFlags: 0
@@ -40905,6 +41003,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 7
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 3
 --- !u!1 &2007184186
 GameObject:
   m_ObjectHideFlags: 0
@@ -40960,6 +41059,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 7
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 0
 --- !u!1 &2007716291
 GameObject:
   m_ObjectHideFlags: 0
@@ -41402,6 +41502,7 @@ MonoBehaviour:
   unityAxisZ: 0
   jointType: 17
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 2
 --- !u!1 &2025302979
 GameObject:
   m_ObjectHideFlags: 0
@@ -42718,6 +42819,7 @@ MonoBehaviour:
   unityAxisZ: 2
   jointType: 20
   BodySourceManager: {fileID: 897587524}
+  BodyIndex: 2
 --- !u!1 &2096166115
 GameObject:
   m_ObjectHideFlags: 0
