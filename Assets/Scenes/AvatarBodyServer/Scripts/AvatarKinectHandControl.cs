@@ -10,6 +10,9 @@ public class AvatarKinectHandControl : MonoBehaviour
 
     public GameObject AvatarCarl;
 
+    [Range(0, 5)]
+    public int BodyIndex;
+
     // Use this for initialization
     void Start()
     {
@@ -36,27 +39,23 @@ public class AvatarKinectHandControl : MonoBehaviour
             return;
         }
 
-        List<ulong> trackedIds = new List<ulong>();
-        foreach (var body in data)
+        //List<ulong> trackedIds = new List<ulong>();
+        //foreach (var body in data)
+        //{
+        //    if (body == null)
+        //    {
+        //        continue;
+        //    }
+
+        //    if (body.IsTracked)
+        //    {
+        //        trackedIds.Add(body.TrackingId);
+        //    }
+        //}
+
+        var body = data[BodyIndex];
+        if (body != null)
         {
-            if (body == null)
-            {
-                continue;
-            }
-
-            if (body.IsTracked)
-            {
-                trackedIds.Add(body.TrackingId);
-            }
-        }
-
-        foreach (var body in data)
-        {
-            if (body == null)
-            {
-                continue;
-            }
-
             if (body.IsTracked)
             {
                 var handState = body.HandLeftState;
