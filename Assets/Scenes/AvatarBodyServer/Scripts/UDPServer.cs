@@ -171,11 +171,11 @@ public class UDPServer : MonoBehaviour
 
                 if (body.IsTracked)
                 {
-                    if (distance > AvatarCarl.transform.Find(AvatarJoint[Kinect.JointType.SpineBase]).rotation.z)
+                    if (distance > body.Joints[JointType.SpineBase].Position.Z)
                     {
                         closestBodyIndex = bodyindex - 1;
                     }
-                    distance = AvatarCarl.transform.Find(AvatarJoint[Kinect.JointType.SpineBase]).rotation.z;
+                    distance = body.Joints[JointType.SpineBase].Position.Z;
                 }
             }
 
