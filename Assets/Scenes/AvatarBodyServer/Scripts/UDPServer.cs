@@ -180,35 +180,34 @@ public class UDPServer : MonoBehaviour
                 }
             }
 
-            bodyindex = 0;
-            foreach (var body in data)
-            {
-                bodyindex = bodyindex + 1;
-                if (body == null)
-                {
-                    continue;
-                }
+            message = JointMensage(Kinect.JointType.SpineBase, message, "kinectdetected,", closestBodyIndex);
 
-                if (body.IsTracked)
-                {
-                    //// Sending the tracked body id:
-                    //message = "[$]" + "tracking," + "[$$]" + "kinectv2," + "[$$$]" + "trackingid," + body.TrackingId.ToString() + ";";
-                    //sender.Send(Encoding.ASCII.GetBytes(message), message.Length);
-                    ////print(message);
+//            bodyindex = 0;
+//            foreach (var body in data)
+//            {
+//                bodyindex = bodyindex + 1;
+//                if (body == null)
+//                {
+//                    continue;
+//                }
 
-					message = message + "[$]" + "tracking," + "[$$]" + "kinect," + "[$$$]" + "index," + "number," + body.TrackingId.ToString()+";";
+//                if (body.IsTracked)
+//                {
+//                    //// Sending the tracked body id:
+//                    //message = "[$]" + "tracking," + "[$$]" + "kinectv2," + "[$$$]" + "trackingid," + body.TrackingId.ToString() + ";";
+//                    //sender.Send(Encoding.ASCII.GetBytes(message), message.Length);
+//                    ////print(message);
 
-//					Debug.Log(body.TrackingId.ToString());
+//                    message = message + "[$]" + "tracking," + "[$$]" + "kinect," + "[$$$]" + "index," + "number," + body.TrackingId.ToString()+";";
 
-                    foreach (Kinect.JointType joint in Enum.GetValues(typeof(Kinect.JointType)))
-                    {
-                        message = JointMensage(joint, message, "kinect,", bodyindex);
-                        if (closestBodyIndex == bodyindex - 1)
-                            SelectedIndicator.transform.position = AvatarCarl[bodyindex - 1].transform.Find(AvatarJoint[Kinect.JointType.Head]).position;
-                            message = JointMensage(joint, message, "kinectdetected,", bodyindex);
-                    }
-                }
-            }
+////					Debug.Log(body.TrackingId.ToString());
+
+//                    foreach (Kinect.JointType joint in Enum.GetValues(typeof(Kinect.JointType)))
+//                    {
+//                        message = JointMensage(joint, message, "kinect,", bodyindex - 1);
+//                    }
+//                }
+//            }
 
             //if (message != "")
             //{
@@ -239,10 +238,10 @@ public class UDPServer : MonoBehaviour
             message = message + "[$]" + "tracking," + "[$$]" + device + "[$$$]";
             message = message + KinectV1Joint[joint] + ",";
             message = message + "rotation,";
-            message = message + AvatarCarl[bodyindex - 1].transform.Find(AvatarJoint[joint]).rotation.x + ",";
-            message = message + AvatarCarl[bodyindex - 1].transform.Find(AvatarJoint[joint]).rotation.y + ",";
-            message = message + AvatarCarl[bodyindex - 1].transform.Find(AvatarJoint[joint]).rotation.z + ",";
-            message = message + AvatarCarl[bodyindex - 1].transform.Find(AvatarJoint[joint]).rotation.w + ";";
+            message = message + AvatarCarl[bodyindex].transform.Find(AvatarJoint[joint]).rotation.x + ",";
+            message = message + AvatarCarl[bodyindex].transform.Find(AvatarJoint[joint]).rotation.y + ",";
+            message = message + AvatarCarl[bodyindex].transform.Find(AvatarJoint[joint]).rotation.z + ",";
+            message = message + AvatarCarl[bodyindex].transform.Find(AvatarJoint[joint]).rotation.w + ";";
             //sender.Send(Encoding.ASCII.GetBytes(message), message.Length);
             //print(message);
         }
@@ -253,9 +252,9 @@ public class UDPServer : MonoBehaviour
             message = message + "[$]" + "tracking," + "[$$]" + device + "[$$$]";
             message = message + KinectV1Joint[joint] + ",";
             message = message + "position,";
-            message = message + AvatarCarl[bodyindex - 1].transform.Find(AvatarJoint[joint]).position.x + ",";
-            message = message + AvatarCarl[bodyindex - 1].transform.Find(AvatarJoint[joint]).position.y + ",";
-            message = message + AvatarCarl[bodyindex - 1].transform.Find(AvatarJoint[joint]).position.z + ";";
+            message = message + AvatarCarl[bodyindex].transform.Find(AvatarJoint[joint]).position.x + ",";
+            message = message + AvatarCarl[bodyindex].transform.Find(AvatarJoint[joint]).position.y + ",";
+            message = message + AvatarCarl[bodyindex].transform.Find(AvatarJoint[joint]).position.z + ";";
             //sender.Send(Encoding.ASCII.GetBytes(message), message.Length);
             //print(message);
         }
