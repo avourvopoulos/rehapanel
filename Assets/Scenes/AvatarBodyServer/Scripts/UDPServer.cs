@@ -180,7 +180,10 @@ public class UDPServer : MonoBehaviour
                 }
             }
 
-            message = JointMensage(Kinect.JointType.SpineBase, message, "kinectdetected,", closestBodyIndex);
+            foreach (Kinect.JointType joint in Enum.GetValues(typeof (Kinect.JointType)))
+            {
+                message = JointMensage(joint, message, "kinectdetected,", closestBodyIndex);
+            }
 
 //            bodyindex = 0;
 //            foreach (var body in data)
