@@ -14,7 +14,6 @@ public class UDPServer : MonoBehaviour
     public GameObject[] AvatarCarl;
 
     private float WriteFrequency = 30f;
-    private bool _first = true;
 
 	private KinectSensor _sensor;
 
@@ -80,33 +79,29 @@ public class UDPServer : MonoBehaviour
     {
         _userInterface = UserInterface.GetComponent<UserInterface>();
         InvokeRepeating("SendData", 0.1f, 1f / WriteFrequency);
+        _sensor = KinectSensor.GetDefault();
     }
     
 	void Update()
 	{
-		_sensor = KinectSensor.GetDefault();
-
         if (_sensor != null)
             _userInterface.ipGo = _sensor.IsOpen;
 	}
 
     void OnApplicationQuit()
     {
+
     }
 
     void OnDisable()
     {
+
     }
 
     void SendData()
     {
         if (_userInterface.ipGo)
         {
-            if (_first)
-            {
-                _first = false;
-            }
-
             if (BodySourceManager == null)
             {
                 return;
@@ -129,21 +124,19 @@ public class UDPServer : MonoBehaviour
             //Finds which body is closer to the Kinect
             int closestBodyIndex = 0;
             Single distance = 10000; //10m or 10 000 m? doesn't matter just has to be big
-            int bodyindex = 0;
+            int bodyindex = -1;
             foreach (var body in data)
             {
-                bodyindex = bodyindex + 1;
-                if (body == null)
-                    continue;
+                bodyindex += 1;
 
-                if (body.IsTracked)
+                if (body == null) continue;
+                if (!body.IsTracked) continue;
+
+                if (body.Joints[JointType.SpineBase].Position.Z < distance)
                 {
-                    if (distance > body.Joints[JointType.SpineBase].Position.Z)
-                    {
-                        closestBodyIndex = bodyindex - 1;
-                    }
-                    distance = body.Joints[JointType.SpineBase].Position.Z;
+                    closestBodyIndex = bodyindex;
                 }
+                distance = body.Joints[JointType.SpineBase].Position.Z;
             }
 
             foreach (JointType joint in Enum.GetValues(typeof (JointType)))
@@ -151,10 +144,10 @@ public class UDPServer : MonoBehaviour
                 message = JointMensage(joint, message, "kinectdetected,", closestBodyIndex);
             }
 
-//            bodyindex = 0;
+//            bodyindex = -1;
 //            foreach (var body in data)
 //            {
-//                bodyindex = bodyindex + 1;
+//                bodyindex += 1;
 //                if (body == null)
 //                {
 //                    continue;
@@ -173,7 +166,7 @@ public class UDPServer : MonoBehaviour
 
 //                    foreach (Kinect.JointType joint in Enum.GetValues(typeof(Kinect.JointType)))
 //                    {
-//                        message = JointMensage(joint, message, "kinect,", bodyindex - 1);
+//                        message = JointMensage(joint, message, "kinect,", bodyindex);
 //                    }
 //                }
 //            }
