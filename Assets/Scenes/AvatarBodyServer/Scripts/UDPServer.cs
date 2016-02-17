@@ -1,21 +1,10 @@
 ﻿using UnityEngine;
 using System;
-using System.IO;
-using System.Collections;
 using System.Collections.Generic;
-using System.Net;
-using System.Net.Sockets;
-using System.Text;
-using Kinect = Windows.Kinect;
 using Windows.Kinect;
 
 public class UDPServer : MonoBehaviour
 {
-    //UdpClient sender;
-    //public int localPort = 1201;
-    //public int remotePort = 1202;
-    //public string ipAddress = "192.168.10.101";
-
     public GameObject BodySourceManager;
     private BodySourceManager _bodyManager;
 
@@ -31,79 +20,67 @@ public class UDPServer : MonoBehaviour
 
 	private KinectSensor _sensor;
 
-    //string fileName = "udp_debug.txt";
-    //StreamWriter sr;
-    //System.Single t1;
-    //System.Single t2;
-
-    private Dictionary<Kinect.JointType, String> AvatarJoint = new Dictionary<Kinect.JointType, String>()
+    private Dictionary<JointType, String> AvatarJoint = new Dictionary<JointType, String>()
     {
-        { Kinect.JointType.SpineBase,       "Hips" },
-        { Kinect.JointType.SpineMid,        "Hips/Spine" },
-        { Kinect.JointType.Neck,            "Hips/Spine/Spine1/Spine2" },
-        { Kinect.JointType.Head,            "Hips/Spine/Spine1/Spine2/Neck/Neck1" },
-        { Kinect.JointType.ShoulderLeft,    "Hips/Spine/Spine1/Spine2/LeftShoulder" },
-        { Kinect.JointType.ElbowLeft,       "Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm" },
-        { Kinect.JointType.WristLeft,       "Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm" },
-        { Kinect.JointType.HandLeft,        "Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand" },
-        { Kinect.JointType.ShoulderRight,   "Hips/Spine/Spine1/Spine2/RightShoulder" },
-        { Kinect.JointType.ElbowRight,      "Hips/Spine/Spine1/Spine2/RightShoulder/RightArm" },
-        { Kinect.JointType.WristRight,      "Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm" },
-        { Kinect.JointType.HandRight,       "Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand" },
-        //{ Kinect.JointType.HipLeft,         "" },
-        { Kinect.JointType.KneeLeft,        "Hips/LeftUpLeg" },
-        { Kinect.JointType.AnkleLeft,       "Hips/LeftUpLeg/LeftLeg" },
-        { Kinect.JointType.FootLeft,        "Hips/LeftUpLeg/LeftLeg/LeftFoot" },
-        //{ Kinect.JointType.HipRight,        "" },
-        { Kinect.JointType.KneeRight,       "Hips/RightUpLeg" },
-        { Kinect.JointType.AnkleRight,      "Hips/RightUpLeg/RightLeg" },
-        { Kinect.JointType.FootRight,       "Hips/RightUpLeg/RightLeg/RightFoot" },
-        //{ Kinect.JointType.SpineShoulder,   "Spine1" },
-        //{ Kinect.JointType.HandTipLeft,     "" },
-        //{ Kinect.JointType.ThumbLeft,       "" },
-        //{ Kinect.JointType.HandTipRight,    "" },
-        //{ Kinect.JointType.ThumbRight,      "" },
+        { JointType.SpineBase,       "Hips" },
+        { JointType.SpineMid,        "Hips/Spine" },
+        { JointType.Neck,            "Hips/Spine/Spine1/Spine2" },
+        { JointType.Head,            "Hips/Spine/Spine1/Spine2/Neck/Neck1" },
+        { JointType.ShoulderLeft,    "Hips/Spine/Spine1/Spine2/LeftShoulder" },
+        { JointType.ElbowLeft,       "Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm" },
+        { JointType.WristLeft,       "Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm" },
+        { JointType.HandLeft,        "Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand" },
+        { JointType.ShoulderRight,   "Hips/Spine/Spine1/Spine2/RightShoulder" },
+        { JointType.ElbowRight,      "Hips/Spine/Spine1/Spine2/RightShoulder/RightArm" },
+        { JointType.WristRight,      "Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm" },
+        { JointType.HandRight,       "Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand" },
+        //{ JointType.HipLeft,         "" },
+        { JointType.KneeLeft,        "Hips/LeftUpLeg" },
+        { JointType.AnkleLeft,       "Hips/LeftUpLeg/LeftLeg" },
+        { JointType.FootLeft,        "Hips/LeftUpLeg/LeftLeg/LeftFoot" },
+        //{ JointType.HipRight,        "" },
+        { JointType.KneeRight,       "Hips/RightUpLeg" },
+        { JointType.AnkleRight,      "Hips/RightUpLeg/RightLeg" },
+        { JointType.FootRight,       "Hips/RightUpLeg/RightLeg/RightFoot" },
+        //{ JointType.SpineShoulder,   "Spine1" },
+        //{ JointType.HandTipLeft,     "" },
+        //{ JointType.ThumbLeft,       "" },
+        //{ JointType.HandTipRight,    "" },
+        //{ JointType.ThumbRight,      "" },
     };
 
-    private Dictionary<Kinect.JointType, String> KinectV1Joint = new Dictionary<Kinect.JointType, String>()
+    private Dictionary<JointType, String> KinectV1Joint = new Dictionary<JointType, String>()
     {
-        { Kinect.JointType.SpineBase,       "waist" },
-        { Kinect.JointType.SpineMid,        "torso" },
-        { Kinect.JointType.Neck,            "neck" },
-        { Kinect.JointType.Head,            "head" },
-        //{ Kinect.JointType.ShoulderLeft,    "" },
-        { Kinect.JointType.ElbowLeft,       "leftshoulder" },
-        { Kinect.JointType.WristLeft,       "leftelbow" },
-        { Kinect.JointType.HandLeft,        "leftwrist" },
-        //{ Kinect.JointType.ShoulderRight,   "" },
-        { Kinect.JointType.ElbowRight,      "rightshoulder" },
-        { Kinect.JointType.WristRight,      "rightelbow" },
-        { Kinect.JointType.HandRight,       "rightwrist" },
-        //{ Kinect.JointType.HipLeft,         "" },
-        { Kinect.JointType.KneeLeft,        "lefthip" },
-        { Kinect.JointType.AnkleLeft,       "leftknee" },
-        { Kinect.JointType.FootLeft,        "leftankle" },
-        //{ Kinect.JointType.HipRight,        "" },
-        { Kinect.JointType.KneeRight,       "righthip" },
-        { Kinect.JointType.AnkleRight,      "rightknee" },
-        { Kinect.JointType.FootRight,       "rightankle" },
-        //{ Kinect.JointType.SpineShoulder,   "" },
-        //{ Kinect.JointType.HandTipLeft,     "" },
-        //{ Kinect.JointType.ThumbLeft,       "" },
-        //{ Kinect.JointType.HandTipRight,    "" },
-        //{ Kinect.JointType.ThumbRight,      "" },
+        { JointType.SpineBase,       "waist" },
+        { JointType.SpineMid,        "torso" },
+        { JointType.Neck,            "neck" },
+        { JointType.Head,            "head" },
+        //{ JointType.ShoulderLeft,    "" },
+        { JointType.ElbowLeft,       "leftshoulder" },
+        { JointType.WristLeft,       "leftelbow" },
+        { JointType.HandLeft,        "leftwrist" },
+        //{ JointType.ShoulderRight,   "" },
+        { JointType.ElbowRight,      "rightshoulder" },
+        { JointType.WristRight,      "rightelbow" },
+        { JointType.HandRight,       "rightwrist" },
+        //{ JointType.HipLeft,         "" },
+        { JointType.KneeLeft,        "lefthip" },
+        { JointType.AnkleLeft,       "leftknee" },
+        { JointType.FootLeft,        "leftankle" },
+        //{ JointType.HipRight,        "" },
+        { JointType.KneeRight,       "righthip" },
+        { JointType.AnkleRight,      "rightknee" },
+        { JointType.FootRight,       "rightankle" },
+        //{ JointType.SpineShoulder,   "" },
+        //{ JointType.HandTipLeft,     "" },
+        //{ JointType.ThumbLeft,       "" },
+        //{ JointType.HandTipRight,    "" },
+        //{ JointType.ThumbRight,      "" },
     };
 
     void Start()
     {
-        //sr = File.CreateText(fileName);
-;
-//        sender = new UdpClient(localPort, AddressFamily.InterNetwork);
-        //IPEndPoint groupEP = new IPEndPoint(IPAddress.Broadcast, remotePort);
-        //IPEndPoint groupEP = new IPEndPoint(IPAddress.Parse(ipAddress), remotePort);
-        //sender.Connect(groupEP);
         _userInterface = UserInterface.GetComponent<UserInterface>();
-        //t1 = UnityEngine.Time.time;
         InvokeRepeating("SendData", 0.1f, 1f / WriteFrequency);
     }
     
@@ -113,31 +90,22 @@ public class UDPServer : MonoBehaviour
 
         if (_sensor != null)
             _userInterface.ipGo = _sensor.IsOpen;
-
 	}
 
     void OnApplicationQuit()
     {
-        //sender.Close();
     }
 
     void OnDisable()
     {
-        //sender.Close();
     }
 
     void SendData()
     {
-        //t2 = UnityEngine.Time.time;
-        //print(1/(t2 - t1));
-        //t1 = t2;
-
         if (_userInterface.ipGo)
         {
             if (_first)
             {
-//                IPEndPoint groupEP = new IPEndPoint(IPAddress.Parse(_userInterface.ipAddress), remotePort);
-//               sender.Connect(groupEP);
                 _first = false;
             }
 
@@ -152,7 +120,7 @@ public class UDPServer : MonoBehaviour
                 return;
             }
 
-            Kinect.Body[] data = _bodyManager.GetData();
+            Body[] data = _bodyManager.GetData();
             if (data == null)
             {
                 return;
@@ -180,7 +148,7 @@ public class UDPServer : MonoBehaviour
                 }
             }
 
-            foreach (Kinect.JointType joint in Enum.GetValues(typeof (Kinect.JointType)))
+            foreach (JointType joint in Enum.GetValues(typeof (JointType)))
             {
                 message = JointMensage(joint, message, "kinectdetected,", closestBodyIndex);
             }
@@ -212,11 +180,6 @@ public class UDPServer : MonoBehaviour
 //                }
 //            }
 
-            //if (message != "")
-            //{
-            //    sr.WriteLine(message);
-            //    //print(message.Length);
-            //}
 			if(!DevicesLists.availableDev.Contains("KINECT2:TRACKING:JOINTS:ALL"))
 			{
 				DevicesLists.availableDev.Add("KINECT2:TRACKING:JOINTS:ALL");		
@@ -224,10 +187,7 @@ public class UDPServer : MonoBehaviour
 			if(DevicesLists.selectedDev.Contains("KINECT2:TRACKING:JOINTS:ALL") && UDPData.flag==true)
 			{					
 				UDPData.sendString(message);
-			//	Debug.Log(message);
 			}	
-
-            //sender.Send(Encoding.ASCII.GetBytes(message), message.Length);
         }
 
 
@@ -245,8 +205,6 @@ public class UDPServer : MonoBehaviour
             message = message + AvatarCarl[bodyindex].transform.Find(AvatarJoint[joint]).rotation.y + ",";
             message = message + AvatarCarl[bodyindex].transform.Find(AvatarJoint[joint]).rotation.z + ",";
             message = message + AvatarCarl[bodyindex].transform.Find(AvatarJoint[joint]).rotation.w + ";";
-            //sender.Send(Encoding.ASCII.GetBytes(message), message.Length);
-            //print(message);
         }
         // Sending the tracked body joint position in kinect v1 format:
         if (AvatarJoint.ContainsKey(joint) && KinectV1Joint.ContainsKey(joint)) // && KinectV1Joint[joint] == "waist")
@@ -258,8 +216,6 @@ public class UDPServer : MonoBehaviour
             message = message + AvatarCarl[bodyindex].transform.Find(AvatarJoint[joint]).position.x + ",";
             message = message + AvatarCarl[bodyindex].transform.Find(AvatarJoint[joint]).position.y + ",";
             message = message + AvatarCarl[bodyindex].transform.Find(AvatarJoint[joint]).position.z + ";";
-            //sender.Send(Encoding.ASCII.GetBytes(message), message.Length);
-            //print(message);
         }
         return message;
     }
