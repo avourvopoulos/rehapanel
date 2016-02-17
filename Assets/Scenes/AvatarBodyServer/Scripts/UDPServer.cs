@@ -13,9 +13,7 @@ public class UDPServer : MonoBehaviour
 
     public GameObject[] AvatarCarl;
 
-    public GameObject SelectedIndicator;
-
-    public float WriteFrequency = 30f;
+    private float WriteFrequency = 30f;
     private bool _first = true;
 
 	private KinectSensor _sensor;
