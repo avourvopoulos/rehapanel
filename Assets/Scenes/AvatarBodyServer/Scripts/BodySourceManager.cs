@@ -15,6 +15,8 @@ public class BodySourceManager : MonoBehaviour
     }
 
 
+    //TODO: implement an on/off button for the sensor
+
     void Start()
     {
 		if (SystemInfo.operatingSystem.ToString ().Contains ("Windows 8"))
