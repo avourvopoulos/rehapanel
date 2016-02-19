@@ -15,7 +15,7 @@ public class UDPServer : MonoBehaviour
 
     private float WriteFrequency = 30f;
 
-	private KinectSensor _sensor;
+    private KinectSensor _sensor;
 
     private Dictionary<JointType, String> AvatarJoint = new Dictionary<JointType, String>()
     {
@@ -81,12 +81,12 @@ public class UDPServer : MonoBehaviour
         InvokeRepeating("SendData", 0.1f, 1f / WriteFrequency);
         _sensor = KinectSensor.GetDefault();
     }
-    
-	void Update()
-	{
+
+    void Update()
+    {
         if (_sensor != null)
             _userInterface.ipGo = _sensor.IsOpen;
-	}
+    }
 
     void OnApplicationQuit()
     {
@@ -125,6 +125,7 @@ public class UDPServer : MonoBehaviour
             int closestBodyIndex = 0;
             Single distance = 10000; //10m or 10 000 m? doesn't matter just has to be big
             int bodyindex = -1;
+            UInt64 closestBodyId = 0;
             foreach (var body in data)
             {
                 bodyindex += 1;
@@ -135,50 +136,64 @@ public class UDPServer : MonoBehaviour
                 if (body.Joints[JointType.SpineBase].Position.Z < distance)
                 {
                     closestBodyIndex = bodyindex;
+                    closestBodyId = body.TrackingId;
                 }
                 distance = body.Joints[JointType.SpineBase].Position.Z;
             }
 
-            foreach (JointType joint in Enum.GetValues(typeof (JointType)))
+            bodyindex = -1;
+            foreach (var body in data)
             {
-                message = JointMensage(joint, message, "kinectdetected,", closestBodyIndex);
+                bodyindex += 1;
+
+                if (body == null) continue;
+                if (!body.IsTracked) continue;
+
+                if (body.TrackingId == closestBodyId)
+                {
+                    foreach (JointType joint in Enum.GetValues(typeof(JointType)))
+                    {
+                        message = JointMensage(joint, message, "kinectdetected,", bodyindex);
+                    }
+                }
+
             }
 
-//            bodyindex = -1;
-//            foreach (var body in data)
-//            {
-//                bodyindex += 1;
-//                if (body == null)
-//                {
-//                    continue;
-//                }
+            //            bodyindex = -1;
+            //            foreach (var body in data)
+            //            {
+            //                bodyindex += 1;
+            //                if (body == null)
+            //                {
+            //                    continue;
+            //                }
 
-//                if (body.IsTracked)
-//                {
-//                    //// Sending the tracked body id:
-//                    //message = "[$]" + "tracking," + "[$$]" + "kinectv2," + "[$$$]" + "trackingid," + body.TrackingId.ToString() + ";";
-//                    //sender.Send(Encoding.ASCII.GetBytes(message), message.Length);
-//                    ////print(message);
+            //                if (body.IsTracked)
+            //                {
+            //                    //// Sending the tracked body id:
+            //                    //message = "[$]" + "tracking," + "[$$]" + "kinectv2," + "[$$$]" + "trackingid," + body.TrackingId.ToString() + ";";
+            //                    //sender.Send(Encoding.ASCII.GetBytes(message), message.Length);
+            //                    ////print(message);
 
-//                    message = message + "[$]" + "tracking," + "[$$]" + "kinect," + "[$$$]" + "index," + "number," + body.TrackingId.ToString()+";";
+            //                    message = message + "[$]" + "tracking," + "[$$]" + "kinect," + "[$$$]" + "index," + "number," + body.TrackingId.ToString()+";";
 
-////					Debug.Log(body.TrackingId.ToString());
+            ////					Debug.Log(body.TrackingId.ToString());
 
-//                    foreach (Kinect.JointType joint in Enum.GetValues(typeof(Kinect.JointType)))
-//                    {
-//                        message = JointMensage(joint, message, "kinect,", bodyindex);
-//                    }
-//                }
-//            }
+            //                    foreach (Kinect.JointType joint in Enum.GetValues(typeof(Kinect.JointType)))
+            //                    {
+            //                        message = JointMensage(joint, message, "kinect,", bodyindex);
+            //                    }
+            //                }
+            //            }
 
-			if(!DevicesLists.availableDev.Contains("KINECT2:TRACKING:JOINTS:ALL"))
-			{
-				DevicesLists.availableDev.Add("KINECT2:TRACKING:JOINTS:ALL");		
-			}
-			if(DevicesLists.selectedDev.Contains("KINECT2:TRACKING:JOINTS:ALL") && UDPData.flag==true)
-			{					
-				UDPData.sendString(message);
-			}	
+            if (!DevicesLists.availableDev.Contains("KINECT2:TRACKING:JOINTS:ALL"))
+            {
+                DevicesLists.availableDev.Add("KINECT2:TRACKING:JOINTS:ALL");
+            }
+            if (DevicesLists.selectedDev.Contains("KINECT2:TRACKING:JOINTS:ALL") && UDPData.flag == true)
+            {
+                UDPData.sendString(message);
+            }
         }
 
 
