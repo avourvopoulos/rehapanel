@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Windows.Kinect;
 
 public class UDPServer : MonoBehaviour
@@ -122,30 +123,24 @@ public class UDPServer : MonoBehaviour
             string message = "";
 
             //Finds which body is closer to the Kinect
-            int closestBodyIndex = 0;
-            Single distance = 10000; //10m or 10 000 m? doesn't matter just has to be big
+            float[] distances = new float[6];
             int bodyindex = -1;
-            UInt64 closestBodyId = 0;
             foreach (var body in data)
             {
-                bodyindex += 1;
-
+                bodyindex++;
+                distances[bodyindex] = 10000;
                 if (body == null) continue;
                 if (!body.IsTracked) continue;
-
-                if (body.Joints[JointType.SpineBase].Position.Z < distance)
-                {
-                    closestBodyIndex = bodyindex;
-                    closestBodyId = body.TrackingId;
-                }
-                distance = body.Joints[JointType.SpineBase].Position.Z;
+                distances[bodyindex] = body.Joints[JointType.SpineBase].Position.Z;
             }
+
+            int closestBodyIndex = Array.IndexOf(distances, distances.Min());
+            var closestBodyId = data[closestBodyIndex].TrackingId;
 
             bodyindex = -1;
             foreach (var body in data)
             {
-                bodyindex += 1;
-
+                bodyindex++;
                 if (body == null) continue;
                 if (!body.IsTracked) continue;
 
@@ -159,32 +154,21 @@ public class UDPServer : MonoBehaviour
 
             }
 
-            //            bodyindex = -1;
-            //            foreach (var body in data)
-            //            {
-            //                bodyindex += 1;
-            //                if (body == null)
-            //                {
-            //                    continue;
-            //                }
+            bodyindex = -1;
+            foreach (var body in data)
+            {
+                bodyindex++;
+                if (body == null) continue;
+                if (!body.IsTracked) continue;
 
-            //                if (body.IsTracked)
-            //                {
-            //                    //// Sending the tracked body id:
-            //                    //message = "[$]" + "tracking," + "[$$]" + "kinectv2," + "[$$$]" + "trackingid," + body.TrackingId.ToString() + ";";
-            //                    //sender.Send(Encoding.ASCII.GetBytes(message), message.Length);
-            //                    ////print(message);
+                // Sending the tracked body id:
+                message = message + "[$]" + "tracking," + "[$$]" + "kinect," + "[$$$]" + "index," + "number," + body.TrackingId.ToString() + ";";
 
-            //                    message = message + "[$]" + "tracking," + "[$$]" + "kinect," + "[$$$]" + "index," + "number," + body.TrackingId.ToString()+";";
-
-            ////					Debug.Log(body.TrackingId.ToString());
-
-            //                    foreach (Kinect.JointType joint in Enum.GetValues(typeof(Kinect.JointType)))
-            //                    {
-            //                        message = JointMensage(joint, message, "kinect,", bodyindex);
-            //                    }
-            //                }
-            //            }
+                foreach (JointType joint in Enum.GetValues(typeof(JointType)))
+                {
+                    message = JointMensage(joint, message, "kinect,", bodyindex);
+                }
+            }
 
             if (!DevicesLists.availableDev.Contains("KINECT2:TRACKING:JOINTS:ALL"))
             {
@@ -213,9 +197,8 @@ public class UDPServer : MonoBehaviour
             message = message + AvatarCarl[bodyindex].transform.Find(AvatarJoint[joint]).rotation.w + ";";
         }
         // Sending the tracked body joint position in kinect v1 format:
-        if (AvatarJoint.ContainsKey(joint) && KinectV1Joint.ContainsKey(joint)) // && KinectV1Joint[joint] == "waist")
+        if (AvatarJoint.ContainsKey(joint) && KinectV1Joint.ContainsKey(joint))
         {
-            //message = "";
             message = message + "[$]" + "tracking," + "[$$]" + device + "[$$$]";
             message = message + KinectV1Joint[joint] + ",";
             message = message + "position,";
