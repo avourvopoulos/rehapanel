@@ -29,10 +29,10 @@ public class InfraredSourceManager : MonoBehaviour
             _RawData = new byte[frameDesc.LengthInPixels * 4];
             _Texture = new Texture2D(frameDesc.Width, frameDesc.Height, TextureFormat.BGRA32, false);
             
-            if (!_Sensor.IsOpen)
-            {
-                _Sensor.Open();
-            }
+            //if (!_Sensor.IsOpen)
+            //{
+            //    _Sensor.Open();
+            //}
         }
     }
 

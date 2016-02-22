@@ -43,10 +43,10 @@ public class DepthSourceView : MonoBehaviour
             // Downsample to lower resolution
             CreateMesh(frameDesc.Width / _DownsampleSize, frameDesc.Height / _DownsampleSize);
 
-            if (!_Sensor.IsOpen)
-            {
-                _Sensor.Open();
-            }
+            //if (!_Sensor.IsOpen)
+            //{
+            //    _Sensor.Open();
+            //}
         }
     }
 

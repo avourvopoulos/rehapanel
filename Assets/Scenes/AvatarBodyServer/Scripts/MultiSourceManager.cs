@@ -73,10 +73,10 @@ public class MultiSourceManager : MonoBehaviour {
             _IRRawData = new byte[irFrameDesc.LengthInPixels * 4];
             _IRTexture = new Texture2D(irFrameDesc.Width, irFrameDesc.Height, TextureFormat.BGRA32, false);
             
-            if (!_Sensor.IsOpen)
-            {
-                _Sensor.Open();
-            }
+            //if (!_Sensor.IsOpen)
+            //{
+            //    _Sensor.Open();
+            //}
         }
     }
     

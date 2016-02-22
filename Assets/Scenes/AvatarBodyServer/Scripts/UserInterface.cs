@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class UserInterface : MonoBehaviour
 {
     public GameObject Camera;
     public Vector3 avatarRoot = new Vector3(0f, 0f, 0f);
     public Vector3 stickmanRoot = new Vector3(30f, 0f, 0f);
-//    public string ipAddress = "192.168.10.101";
     public bool ipGo = true;
+    public static bool Kinect2On = false;
 
 	public Texture2D backIcon;
 
@@ -39,27 +40,10 @@ public class UserInterface : MonoBehaviour
 				MainGuiControls.Kinect2Menu = false;
 				MainGuiControls.hideMenus = false;
 				Camera.SetActive(false);
-			}	
+			}
 
-//	        if (GUI.Button(new Rect(20, 70, 70, 40), "Avatar"))
-//	        {
-//	            Vector3 cameraPos = avatarRoot;
-//	            cameraPos.y=0.9f;
-//	            Camera.transform.position = cameraPos;
-//	        }
-//	        if (GUI.Button(new Rect(20, 20, 70, 40), "StickMan"))
-//	        {
-//	            Vector3 cameraPos = stickmanRoot;
-//	            cameraPos.y = 0.9f;
-//	            Camera.transform.position = cameraPos;
-//	        }
-//
-//	        ipAddress = GUI.TextField(new Rect(500, 10, 200, 20), ipAddress, 25);
-//	        if (GUI.Button(new Rect(500, 70, 70, 40), "UDP GO"))
-//	        {
-//	            ipGo = true;
-//	        }
-
+            //todo: put on/off button here
+            Kinect2On = GUI.Toggle(new Rect(10, 50, 100, 50), Kinect2On, "On/Off");
 		}
     }
 }

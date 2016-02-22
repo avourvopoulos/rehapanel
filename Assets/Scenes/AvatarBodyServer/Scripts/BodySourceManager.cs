@@ -19,22 +19,55 @@ public class BodySourceManager : MonoBehaviour
 
     void Start()
     {
-		if (SystemInfo.operatingSystem.ToString ().Contains ("Windows 8"))
-        _Sensor = KinectSensor.GetDefault();
+        if (SystemInfo.operatingSystem.ToString ().Contains ("Windows 8"))
+            _Sensor = KinectSensor.GetDefault();
 
-        if (_Sensor != null)
-        {
-            _Reader = _Sensor.BodyFrameSource.OpenReader();
+        //if (_Sensor != null)
+        //{
+        //    _Reader = _Sensor.BodyFrameSource.OpenReader();
 
-            if (!_Sensor.IsOpen)
-            {
-                _Sensor.Open();
-            }
-        }
+        //    if (!_Sensor.IsOpen)
+        //    {
+        //        _Sensor.Open();
+        //    }
+        //}
     }
 
     void Update()
     {
+        //Start the Kinect2 if the toggle is on and the device is off
+        if (UserInterface.Kinect2On)
+        {
+            if (_Sensor != null)
+            {
+                if (_Reader == null)
+                    _Reader = _Sensor.BodyFrameSource.OpenReader();
+
+                if (!_Sensor.IsOpen)
+                {
+                    _Sensor.Open();
+                }
+            }
+        }
+        //Turns the Kinect2 off if the toggle is set to off and the device is on
+        else if (!UserInterface.Kinect2On)
+        {
+            if (_Reader != null)
+            {
+                _Reader.Dispose();
+                _Reader = null;
+            }
+
+            if (_Sensor != null)
+            {
+                if (_Sensor.IsOpen)
+                {
+                    _Sensor.Close();
+                }
+            }
+        }
+
+
         if (_Reader != null)
         {
             var frame = _Reader.AcquireLatestFrame();
