@@ -124,25 +124,22 @@ public class AvatarKinectRotationControl : MonoBehaviour
                         break;
                 }
 
-                //var kinectDevice = GameObject.Find("Kinect2Device");
-                //var kinectDeviceRotation = kinectDevice.transform.rotation;
-                //var kinectDeviceEuler = kinectDeviceRotation.eulerAngles;
-
                 euler1 = LimitAngleDomain(euler1Alpha * (euler1 + euler1OffSet));
                 euler2 = LimitAngleDomain(euler2Alpha * (euler2 + euler2OffSet));
                 euler3 = LimitAngleDomain(euler3Alpha * (euler3 + euler3OffSet));
 
-                transform.eulerAngles = new Vector3(euler1, euler2, euler3);
-                transform.Rotate(Vector3.up * 180, Space.World);
-
+                Quaternion rot1 = Quaternion.Euler(euler1, euler2, euler3);
                 Vector3 floorNormal;
                 floorNormal.x = _BodyManager.Floor.X;
                 floorNormal.y = _BodyManager.Floor.Y;
                 floorNormal.z = _BodyManager.Floor.Z;
 
                 var rotFromKinectoFloor = Quaternion.FromToRotation(Vector3.up, floorNormal);
-                transform.rotation = transform.rotation * rotFromKinectoFloor;
 
+                Quaternion rot = rotFromKinectoFloor * rot1;
+
+                transform.rotation = rot;
+                transform.Rotate(Vector3.up * 180, Space.World);
             }
         }
     }
