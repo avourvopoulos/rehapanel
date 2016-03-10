@@ -14,23 +14,10 @@ public class BodySourceManager : MonoBehaviour
         return _Data;
     }
 
-
-    //TODO: implement an on/off button for the sensor
-
     void Start()
     {
         if (SystemInfo.operatingSystem.ToString ().Contains ("Windows 8"))
             _Sensor = KinectSensor.GetDefault();
-
-        //if (_Sensor != null)
-        //{
-        //    _Reader = _Sensor.BodyFrameSource.OpenReader();
-
-        //    if (!_Sensor.IsOpen)
-        //    {
-        //        _Sensor.Open();
-        //    }
-        //}
     }
 
     void Update()
