@@ -8,7 +8,6 @@ PlayerSettings:
   defaultScreenOrientation: 4
   targetDevice: 2
   targetGlesGraphics: 1
-  targetIOSGraphics: -1
   targetResolution: 0
   accelerometerFrequency: 60
   companyName: NeuroRehabLab
@@ -73,7 +72,6 @@ PlayerSettings:
   metroEnableLowLatencyPresentationAPI: 0
   productGUID: 7efb0828d3a044ce38acedda711685f5
   iPhoneBundleVersion: 1.0
-  iPhoneShortBundleVersion: 1.0
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 9
   AndroidPreferredInstallLocation: 1
@@ -103,15 +101,6 @@ PlayerSettings:
   iPadHighResPortraitSplashScreen: {fileID: 0}
   iPadLandscapeSplashScreen: {fileID: 0}
   iPadHighResLandscapeSplashScreen: {fileID: 0}
-  iOSLaunchScreenType: 0
-  iOSLaunchScreenPortrait: {fileID: 0}
-  iOSLaunchScreenLandscape: {fileID: 0}
-  iOSLaunchScreenBackgroundColor:
-    serializedVersion: 2
-    rgba: 4285163857
-  iOSLaunchScreenFillPct: 100
-  iOSLaunchScreenSize: 100
-  iOSLaunchScreenCustomXibPath: 
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   AndroidKeystoreName: 
@@ -262,8 +251,6 @@ PlayerSettings:
   tizenGPSPermissions: 0
   tizenMicrophonePermissions: 0
   stvDeviceAddress: 
-  wp8UnprocessedPlugins: []
-  intPropertyNames: []
   firstStreamedLevelWithResources: 0
   unityRebuildLibraryVersion: 9
   unityForwardCompatibleVersion: 39
