@@ -78,8 +78,7 @@ public class UDPData : MonoBehaviour {
 //		if(inputData.Count>100)
 //		{
 //			inputData.Clear();
-//		}
-				
+//		}			
 	}
 	
 	
