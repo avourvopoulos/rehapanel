@@ -3,13 +3,14 @@
 ![Unity Version](https://img.shields.io/badge/Unity%20Version-4.6-orange.svg)
 
 **Reh@Panel** (formerly RehabNet CP) acts as a device router, bridging a large number of tracking devices and other hardware with the RehabNet Training Games for the patient to interact with. Reh@Panel implements the communication protocols in a client/server architecture. Native device support for:
-Electrophysiological Data
 
-Emotiv EPOC neuro-headset is intergrated for acquiring raw EEG data, gyroscope data, facial expressions and Emotiv’s Expressiv™, Cognitiv™ and Affectiv™ suite
-Neurosky EEG headset is supported for raw EEG acquisition and eSense™ meters of attention and meditation
-Myoelectric orthosis mPower 1000 (Myomo Inc, Boston, USA) is supported, providing 2 EMG channels and adjustable levels of assistance
+**Electrophysiological Data:**
 
-**Kinematics**
+Emotiv EPOC neuro-headset is intergrated for acquiring raw EEG data, gyroscope data, facial expressions and Emotiv’s Expressiv™, Cognitiv™ and Affectiv™ suite - 
+Neurosky EEG headset is supported for raw EEG acquisition and eSense™ meters of attention and meditation - 
+Myoelectric orthosis mPower 1000 (Myomo Inc, Boston, USA) is supported, providing 2 EMG channels and adjustable levels of assistance - 
+
+**Kinematics:**
 * Microsoft Kinect v1 is natively supported either by the Microsoft or OpenNI drivers
 * Microsoft Kinect v2 through Kinect v2 SDK
 * Nintendo Wii
