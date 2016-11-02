@@ -11,10 +11,10 @@ Neurosky EEG headset is supported for raw EEG acquisition and eSense™ meters o
 Myoelectric orthosis mPower 1000 (Myomo Inc, Boston, USA) is supported, providing 2 EMG channels and adjustable levels of assistance - 
 
 **Kinematics:**
-* Microsoft Kinect v1 is natively supported either by the Microsoft or OpenNI drivers
-* Microsoft Kinect v2 through Kinect v2 SDK
-* Nintendo Wii
-* Leap Motion
+Microsoft Kinect v1 is natively supported either by the Microsoft or OpenNI drivers
+Microsoft Kinect v2 through Kinect v2 SDK
+Nintendo Wii
+Leap Motion
 
 **Head tracking**
 Oculus Rift
