@@ -33,7 +33,7 @@
  
 Extended device support is achieved via a custom UDP protocol used for bridging with:
 
-Android app (see [RehaMote](https://bitbucket.org/neurorehablab/rehamote)) running on smartphones for sending sensor data
+Android app (see [RehaMote](https://github.com/athanoid/rehamote)) running on smartphones for sending sensor data
 Analysis and Tracking System (AnTS)
 VRPN and OSC protocols are supported for the connection with any device (e.g. Vicon’s tracking, 5DT data gloves) or software supporting it (e.g. OpenViBE BCI software)
  
@@ -42,4 +42,4 @@ Reh@Panel performs data filtering, smoothing, translation and emulation on these
 ![Reh@Panel](https://lh5.googleusercontent.com/-fHhZm9NIFwc/U0Z3GbgtmJI/AAAAAAAABIM/TiZYbttpco0/s720/kinect1.png)
 
 ## Reference: ##
-Athanasios Vourvopoulos, Ana Lucia Faria, Monica S Cameirao, Sergi Bermudez i Badia (2013)  RehabNet : A distributed architecture for motor and cognitive neuro-rehabilitation In: 2013 IEEE 15th International Conference on e-Health Networking, Applications Services (Healthcom) 454-459.
+**Athanasios Vourvopoulos**, Ana Lucia Faria, Monica S Cameirao, Sergi Bermudez i Badia (2013)  RehabNet : A distributed architecture for motor and cognitive neuro-rehabilitation In: 2013 IEEE 15th International Conference on e-Health Networking, Applications Services (Healthcom) 454-459.
