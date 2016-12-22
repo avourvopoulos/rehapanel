@@ -2,7 +2,7 @@
 
 ![Unity Version](https://img.shields.io/badge/Unity%20Version-4.6-orange.svg)
 
-**Reh@Panel** (formerly RehabNet CP) acts as a device router, bridging a large number of tracking devices and other hardware with the RehabNet Training Games for the patient to interact with. Reh@Panel implements the communication protocols in a client/server architecture. Native device support for:
+**RehaPanel** (formerly RehabNet CP) acts as a device router, bridging a large number of tracking devices and other hardware with the RehabNet Training Games for the patient to interact with. Reh@Panel implements the communication protocols in a client/server architecture. Native device support for:
 
 **Electrophysiological Data:**
 
