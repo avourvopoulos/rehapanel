@@ -41,5 +41,5 @@ Reh@Panel performs data filtering, smoothing, translation and emulation on these
 
 ![Reh@Panel](https://lh5.googleusercontent.com/-fHhZm9NIFwc/U0Z3GbgtmJI/AAAAAAAABIM/TiZYbttpco0/s720/kinect1.png)
 
-## Reference: ##
+## Publications: ##
 **Athanasios Vourvopoulos**, Ana Lucia Faria, Monica S Cameirao, Sergi Bermudez i Badia (2013)  RehabNet : A distributed architecture for motor and cognitive neuro-rehabilitation In: 2013 IEEE 15th International Conference on e-Health Networking, Applications Services (Healthcom) 454-459.
