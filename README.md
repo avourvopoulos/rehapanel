@@ -13,17 +13,20 @@
 * OpenBCI v1 an open source brain-computer interface platform for electrophysiological signal acquisition.
 
 **Kinematics:**
+
 * Microsoft Kinect v1 is natively supported either by the Microsoft or OpenNI drivers.
 * Microsoft Kinect v2 through Kinect v2 SDK.
 * Nintendo Wii.
 * Leap Motion.
 
 **Head tracking**
+
 * Oculus Rift.
 * Vuzix iWear.
 * faceAPI software with head and face tracking algorithms.
 
 **Eye tracking**
+
 * Tobii T120.
 * Tobii EyeX.
 * Eye-Tribe.
