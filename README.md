@@ -38,7 +38,10 @@ LSL, VRPN and OSC protocols are supported for the connection with any device (e.
  
 RehaPanel performs data filtering, smoothing, translation and emulation on these data. In addition, logging of synchronized data in XML or CSV format is configurable from all the acquisition devices as well as game events for offline analysis. Finally, RehaPanel allows to preview the translated avatar movements from the sensors, allowing to re-adjust parameters in real-time.
 
+[Website](http://neurorehabilitation.m-iti.org/tools/rehabnetcp)
+
 ![Reh@Panel](https://lh5.googleusercontent.com/-fHhZm9NIFwc/U0Z3GbgtmJI/AAAAAAAABIM/TiZYbttpco0/s720/kinect1.png)
+
 
 ## Publications: ##
 **Athanasios Vourvopoulos**, Ana Lucia Faria, Monica S Cameirao, Sergi Bermudez i Badia (2013)  RehabNet : A distributed architecture for motor and cognitive neuro-rehabilitation In: 2013 IEEE 15th International Conference on e-Health Networking, Applications Services (Healthcom) 454-459.
