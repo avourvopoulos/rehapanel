@@ -135,11 +135,11 @@ public class BCIAPE : MonoBehaviour
 //				training = true;
 //			}
 			
-			if(GUI.Button(new Rect(410,100,370,400), "Live Session"))
-			{
+//			if(GUI.Button(new Rect(410,100,370,400), "Live Session"))
+//			{
 				gui_live = true;
 				training = false;
-			}
+//			}
 		}
 		// End Main Menu
 
@@ -148,14 +148,14 @@ public class BCIAPE : MonoBehaviour
 		{
 			user_name = GUI.TextField(new Rect(10, 10, 200, 20), user_name, 25);
 
-			if(GUI.Button(new Rect(Screen.width - 100,10,90,50), "Main Menu"))
-			{
-				user_name = "";
-				training = false;
-				gui_training = false;
-				gui_live = false;
-				MainMenu();
-			}
+//			if(GUI.Button(new Rect(Screen.width - 100,10,90,50), "Main Menu"))
+//			{
+//				user_name = "";
+//				training = false;
+//				gui_training = false;
+//				gui_live = false;
+//				MainMenu();
+//			}
 
 			if(GUI.Button(new Rect(Screen.width - 100,300,90,50), "Start"))
 			{
@@ -239,16 +239,16 @@ public class BCIAPE : MonoBehaviour
 
 			selfPassed = GUI.Toggle(new Rect(Screen.width/2 - 90,10,90,50), selfPassed, " Self Passed");
 
-			if(GUI.Button(new Rect(Screen.width - 100,10,90,50), "Main Menu"))
-			{
-				user_name = "";
-				training = false;
-				selfPassed = false;
-				gui_training = false;
-				gui_live = false;
-				gui_ongoing = false;
-				Back();
-			}
+//			if(GUI.Button(new Rect(Screen.width - 100,10,90,50), "Main Menu"))
+//			{
+//				user_name = "";
+//				training = false;
+//				selfPassed = false;
+//				gui_training = false;
+//				gui_live = false;
+//				gui_ongoing = false;
+//				Back();
+//			}
 		}
 		// End Live Session Menu
 
