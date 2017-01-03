@@ -55,23 +55,23 @@ public class DataMenu : MonoBehaviour {
 			}
 
 
-//			GUI.Label(new Rect(Screen.width-250 , Screen.height/2-150, 120, 25), "Adaptive Performance\n          Engine", dataStyle);
-//			if (GUI.Button (new Rect (Screen.width-230, Screen.height/2-100 ,160,160), bciapeIcon))
-//			{
-//				MainGuiControls.BCIAPE = true;
-//				MainGuiControls.hideMenus = true;
-//			}
+			GUI.Label(new Rect(Screen.width-250 , Screen.height/2-150, 120, 25), "Adaptive Performance\n          Engine", dataStyle);
+			if (GUI.Button (new Rect (Screen.width-230, Screen.height/2-100 ,160,160), bciapeIcon))
+			{
+				MainGuiControls.BCIAPE = true;
+				MainGuiControls.hideMenus = true;
+			}
 
 			
 	GUI.enabled = true;	
 
-	GUI.enabled = false;	
-			GUI.Label(new Rect(Screen.width-210 , Screen.height/2-150, 120, 25), "Visualisation", dataStyle);
-			if (GUI.Button (new Rect (Screen.width-230, Screen.height/2-100 ,160,160), visIcon))
-			{
-				//	MainGuiControls.VisMenu = true;
-				//	MainGuiControls.hideMenus = true;
-			}
+//	GUI.enabled = false;	
+//			GUI.Label(new Rect(Screen.width-210 , Screen.height/2-150, 120, 25), "Visualisation", dataStyle);
+//			if (GUI.Button (new Rect (Screen.width-230, Screen.height/2-100 ,160,160), visIcon))
+//			{
+//				//	MainGuiControls.VisMenu = true;
+//				//	MainGuiControls.hideMenus = true;
+//			}
 
 	GUI.enabled = false;
 			
