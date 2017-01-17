@@ -36,7 +36,7 @@ public class Loadlevel : MonoBehaviour {
         GUI.Label(new Rect((Screen.width/2)-50, (Screen.height/2)+50, 100, 20), "Loading...",loadstyle);
 
 
-		GUI.Label(new Rect((Screen.width)-120, (Screen.height)-30, 300, 20), "Version: " + "2016.04");
+		GUI.Label(new Rect((Screen.width)-120, (Screen.height)-30, 300, 20), "Version: " + "2017.01");
     }
 
 	

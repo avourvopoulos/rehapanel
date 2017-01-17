@@ -70,7 +70,7 @@ public class BCIAPE : MonoBehaviour
 	IPEndPoint sendEndpoint;
 	
 	// udpclient port
-	public int port = 1205;
+	int port = 1212;
 	string user_name = "";
 
 	#region GUI variables
@@ -125,6 +125,7 @@ public class BCIAPE : MonoBehaviour
 		if(MainGuiControls.BCIAPE){
 		// Make a background box
 //		GUI.Box(new Rect(10,10,780,580), "");
+		GUI.BeginGroup(new Rect(Screen.width / 2 - 400, Screen.height / 2 - 250, 800, 600)); /////// start group
 
 		// Main Menu
 		if(!gui_live && !gui_training && !gui_ongoing)
@@ -195,7 +196,7 @@ public class BCIAPE : MonoBehaviour
 			percentageBuffer = Mathf.Round(percentageBuffer * 10f) / 10f;
 			GUI.Label(new Rect(605, 195, 20, 20), percentageBuffer+"");
 
-			if(GUI.Button(new Rect(Screen.width - 100,300,90,50), "Start Live"))
+			if(GUI.Button(new Rect(Screen.width/2 + 200,350,90,50), "Start Live"))
 			{
 				if(gui_user_ok)
 				{
@@ -230,6 +231,9 @@ public class BCIAPE : MonoBehaviour
 
 			sendIP = GUI.TextArea(new Rect(Screen.width/2 - 90,300,110,20), sendIP, 15);
 			sendPort = GUI.TextArea(new Rect(Screen.width/2 + 25,300,40,20), sendPort, 4);
+			GUI.Label(new Rect(Screen.width/2 - 160,300, 200, 20), "Send to VR");
+
+				GUI.Label(new Rect(Screen.width/2 - 90,340, 200, 20), "Receiving at port: " + port);
 
 
 			GUI.Label(new Rect(90, 175, 200, 20), "Performance Increase");
@@ -237,8 +241,9 @@ public class BCIAPE : MonoBehaviour
 			hSliderValue = Mathf.Round(hSliderValue);
 			GUI.Label(new Rect(205, 195, 20, 20), hSliderValue+"");
 
+				GUI.color = Color.yellow;
 			selfPassed = GUI.Toggle(new Rect(Screen.width/2 - 90,10,90,50), selfPassed, " Self Passed");
-
+				GUI.color = Color.white;
 //			if(GUI.Button(new Rect(Screen.width - 100,10,90,50), "Main Menu"))
 //			{
 //				user_name = "";
@@ -270,19 +275,21 @@ public class BCIAPE : MonoBehaviour
 				MainMenu();
 			}
 
-			if(GUI.Button(new Rect(500,300,90,50), "Save and\nExit"))
-			{
-				gui_training = false;
-				gui_live = false;
-				gui_ongoing = false;
-				Exit();
-			}
+//			if(GUI.Button(new Rect(500,300,90,50), "Save and\nExit"))
+//			{
+//				gui_training = false;
+//				gui_live = false;
+//				gui_ongoing = false;
+//				Exit();
+//			}
 
 			GUI.TextArea(new Rect(250,150,300,25), show);
 
 			ShowFeedback();
 		}
 		// End Ongoing Session Menu
+
+			GUI.EndGroup(); /////////////////// end group
 
 		}// if MainGuiControls.BCIAPE
 	}
