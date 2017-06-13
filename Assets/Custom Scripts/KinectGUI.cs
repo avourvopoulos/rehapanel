@@ -63,12 +63,12 @@ public class KinectGUI : MonoBehaviour {
 
 		if (HandlePrefs.bciMode != "on") {
 //		startKinect();
-						motorgui = true;
-						smoothgui = false;	
-						MainGuiControls.hideviewers = 0;			
-						ZigSkeleton.mirror = true;				
-						startzigfu = true;
-						sendULData ();
+//						motorgui = true;
+//						smoothgui = false;	
+//						MainGuiControls.hideviewers = 0;			
+//						ZigSkeleton.mirror = true;				
+//						startzigfu = true;
+//						sendULData ();
 				}
 	}
 	

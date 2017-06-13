@@ -29,7 +29,12 @@ public class Zig : MonoBehaviour {
         //ZigInput.UpdateImage = UpdateImagemap;
         //ZigInput.UpdateLabelMap = UpdateLabelmap;
         //ZigInput.AlignDepthToRGB = AlignDepthToRGB;
+		try{
         ZigInput.Instance.AddListener(gameObject);
+		}
+		catch(System.Exception){
+			Debug.LogError("NOKINECT!!!!!!!!");
+		}
         Debug.Log("INputSetts: "+ZigInput.Settings);
 		Debug.Log("INputType: "+ZigInput.InputType);
 	}
