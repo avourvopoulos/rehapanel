@@ -379,7 +379,7 @@ public class MainGuiControls : MonoBehaviour {
 			 * ******************************
 		 	*/
 
-		if (SystemDetails.win8){//if windows 8
+		//if (SystemDetails.win8){//if windows 8
 			if (_Sensor != null) //kinect 2
 			{
 				if (_Sensor.IsAvailable && _Sensor.IsOpen)
@@ -426,7 +426,7 @@ public class MainGuiControls : MonoBehaviour {
 				}
 				GUI.color = Color.white;
 			}
-		}//end if windows 8
+		//}//end if windows 8
 		else{
 			if(KinectGUI.startzigfu)//kinect
 			{
