@@ -20,11 +20,11 @@ public class SystemDetails : MonoBehaviour {
 			cpuArch = "32 Bit";
 			}
 
-		if (SystemInfo.operatingSystem.ToString ().Contains ("Windows 8")) {
-			kinect2.SetActive (true); 
+		if (SystemInfo.operatingSystem.ToString ().Contains ("Windows 8")|| SystemInfo.operatingSystem.ToString ().Contains ("Windows 10")) {
+			//kinect2.SetActive (true); 
 			win8 = true; }
 		else{
-			kinect2.SetActive (false);
+			//kinect2.SetActive (false);
 			win8 = false;}
 
 	//	Debug.Log("CPU: "+cpuArch);
