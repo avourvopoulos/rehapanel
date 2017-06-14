@@ -37,7 +37,8 @@ public Vector2 scrollPosition1 = Vector2.zero;//
 	{
 		//LoadFromXml();
 		faceapiURL = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ProgramFiles)+"\\NeuroRehabLab\\FaceAPI client\\Socket.exe";
-		print("faceapiURL: "+faceapiURL);
+		bitalinoURL = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ProgramFiles)+"\\BITalino client\\client.exe";
+	//	print("faceapiURL: "+faceapiURL);
 	}
 	
 	void Start () 
