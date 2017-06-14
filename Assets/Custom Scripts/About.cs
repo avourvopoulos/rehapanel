@@ -19,7 +19,8 @@ public class About : MonoBehaviour {
 	void Awake()
 	{
 		//load text file
-		using (TextReader reader = File.OpenText(Application.dataPath + @"\About.txt"))
+		//path = Application.dataPath + "/StreamingAssets";
+		using (TextReader reader = File.OpenText(Application.dataPath + "/StreamingAssets" + "/About.txt"))
 		{
 		    aboutText = reader.ReadToEnd();
 			Debug.Log("About.txt loaded");

@@ -27,7 +27,7 @@ public class MainGuiControls : MonoBehaviour {
 	
 	public GameObject Model;
 	
-    public AudioClip buttonsound;
+//    public AudioClip buttonsound;
 	
 	public Camera WiiCam;
 	public Camera MyoCam;

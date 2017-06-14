@@ -27,28 +27,28 @@ public class SaveConfig : MonoBehaviour {
 	void OnGUI()
     {
 		
-	if(MainGuiControls.OptionsMenu)
+	if(MainGuiControls.KinectMenu)
 	{	
 		
-			GUI.BeginGroup (new Rect (10-KinectGUI.gone, (Screen.height / 2 - 120), 200, 100));
-		GUI.color = Color.yellow;
-		GUI.Box (new Rect (0,0,200,100), "Current Configuration");
-		GUI.color = Color.white;
-		
-		if (GUI.Button(new Rect(40, 30, 50, 20), "Save"))
-        {
-			WriteToXml();
-			Debug.Log("Saved...");
-		}
-		
-		if (GUI.Button(new Rect(110, 30, 50, 20), "Load"))
-        {
-			LoadFromXml();
-			Debug.Log("Loaded...");
-		}
-		GUI.Label(new Rect(10, 60, 400, 20), "Last Save: "+savetime);
-		
-		GUI.EndGroup ();
+//		GUI.BeginGroup (new Rect (10, (Screen.height / 2 - 20), 200, 100));
+//		GUI.color = Color.yellow;
+//		GUI.Box (new Rect (0,0,200,100), "Current Configuration");
+//		GUI.color = Color.white;
+//		
+//		if (GUI.Button(new Rect(40, 30, 50, 20), "Save"))
+//        {
+//			WriteToXml();
+//			Debug.Log("Saved...");
+//		}
+//		
+//		if (GUI.Button(new Rect(110, 30, 50, 20), "Load"))
+//        {
+//			LoadFromXml();
+//			Debug.Log("Loaded...");
+//		}
+//		GUI.Label(new Rect(10, 60, 400, 20), "Last Save: "+savetime);
+//		
+//		GUI.EndGroup ();
 			
 		}//options menu	
 	}

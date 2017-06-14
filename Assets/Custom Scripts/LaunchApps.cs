@@ -35,7 +35,9 @@ public Vector2 scrollPosition1 = Vector2.zero;//
 	// Use this for initialization
 	void Awake () 
 	{
-		LoadFromXml();
+		//LoadFromXml();
+		faceapiURL = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ProgramFiles)+"\\NeuroRehabLab\\FaceAPI client\\Socket.exe";
+		print("faceapiURL: "+faceapiURL);
 	}
 	
 	void Start () 
@@ -212,35 +214,35 @@ public Vector2 scrollPosition1 = Vector2.zero;//
 	}	
 	
 	
-	public void LoadFromXml()
-	{
-	  string filepath = Application.dataPath + @"/Config/LaunchApps.conf";
-	  XmlDocument xmlDoc = new XmlDocument();
-	  
-	 if(File.Exists (filepath))
-	 {
-	  	xmlDoc.Load(filepath);
-	 	   
-	  	XmlNodeList transformList = xmlDoc.GetElementsByTagName("folder");
-	  
-		  foreach (XmlNode transformInfo in transformList)
-		  {
-		 	 XmlNodeList xmlcontent = transformInfo.ChildNodes;
-		    
-			  foreach (XmlNode xmlsettings in xmlcontent)
-			  {
-			     if(xmlsettings.Name == "bitalino")
-			     {
-			     	bitalinoURL = xmlsettings.InnerText; 
-			     }
-			     if(xmlsettings.Name == "faceapi")
-			     {
-			     	faceapiURL = xmlsettings.InnerText; 
-			     }
-			  }
-		   }
-		}
-	 }//LoadFromXml
+//	public void LoadFromXml()
+//	{
+//	  string filepath = Application.dataPath + @"/Config/LaunchApps.conf";
+//	  XmlDocument xmlDoc = new XmlDocument();
+//	  
+//	 if(File.Exists (filepath))
+//	 {
+//	  	xmlDoc.Load(filepath);
+//	 	   
+//	  	XmlNodeList transformList = xmlDoc.GetElementsByTagName("folder");
+//	  
+//		  foreach (XmlNode transformInfo in transformList)
+//		  {
+//		 	 XmlNodeList xmlcontent = transformInfo.ChildNodes;
+//		    
+//			  foreach (XmlNode xmlsettings in xmlcontent)
+//			  {
+//			     if(xmlsettings.Name == "bitalino")
+//			     {
+//			     	bitalinoURL = xmlsettings.InnerText; 
+//			     }
+//			     if(xmlsettings.Name == "faceapi")
+//			     {
+//			     	faceapiURL = xmlsettings.InnerText; 
+//			     }
+//			  }
+//		   }
+//		}
+//	 }//LoadFromXml
 	
 		
 	

@@ -97,7 +97,8 @@ public class CheckUpdates : MonoBehaviour {
 	{
 		if(MainGuiControls.OptionsMenu)
 		{	
-			GUI.BeginGroup (new Rect (10, (Screen.height / 2 +100), 200, 90));
+		//	GUI.BeginGroup (new Rect (10, (Screen.height / 2 +100), 200, 90));
+			GUI.BeginGroup (new Rect ((Screen.width/2-100)-KinectGUI.gone, (Screen.height / 2 +100), 200, 90));
 			GUI.color = Color.yellow;
 			GUI.Box (new Rect (0,0,200,90), "Updates");
 			GUI.color = Color.white;
@@ -131,7 +132,7 @@ public class CheckUpdates : MonoBehaviour {
 			
 			//GUI.Label(new Rect(30, Screen.height / 2 +200, 200, 20), "Latest Build: "+DateTime.Now.ToString("dd-MM-yyyy"));
 			
-			GUI.Label(new Rect(30, Screen.height / 2 +200, 200, 20), "Build: "+currentversion);
+		//	GUI.Label(new Rect(30, Screen.height / 2 +200, 200, 20), "Build: "+currentversion);
 			
 		}//options menu
 	

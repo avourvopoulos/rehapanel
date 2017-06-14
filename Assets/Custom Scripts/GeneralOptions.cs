@@ -101,66 +101,66 @@ if(MainGuiControls.OptionsMenu)
 //		GUI.Label(new Rect(Screen.width/2, Screen.height/2+30, 200, 120), "Key Pressed: " + Event.current.keyCode);
 		
 		// Group1
-		GUI.BeginGroup (new Rect (10, (UnityEngine.Screen.height/2 - 280), 200, 150));
-		GUI.color = Color.yellow;
-		GUI.Box (new Rect (0,0,200,150), "Options");
-		GUI.color = Color.white;
-		
-		capFpsOn = GUI.Toggle(new Rect(130, 25, 100, 20), capFpsOn, "Off");
-		
-	GUI.enabled = !capFpsOn;
-		GUI.Label(new Rect(20, 50, 120, 20), "Reduce Framerate");
-		capFps = GUI.HorizontalSlider(new Rect (20, 80, 150, 30), capFps, 60.0f, 10.0f);
-		GUI.color = Color.gray;
-		GUI.Label(new Rect(80, 95, 100, 20), capFps.ToString("0"));
-		GUI.color = Color.white;
-		GUI.Label(new Rect(20, 90, 200, 20), "Max");
-		GUI.Label(new Rect(150, 90, 200, 20), "Min");
-		GUI.color = Color.red;
-		GUI.Label(new Rect(20, 120, 200, 20), "WARNING! Use it Cautiously");
-		GUI.color = Color.white;
-	GUI.enabled = true;
-		
-		GUI.EndGroup();
+//		GUI.BeginGroup (new Rect (10, (UnityEngine.Screen.height/2 - 280), 200, 150));
+//		GUI.color = Color.yellow;
+//		GUI.Box (new Rect (0,0,200,150), "Options");
+//		GUI.color = Color.white;
+//		
+//		capFpsOn = GUI.Toggle(new Rect(130, 25, 100, 20), capFpsOn, "Off");
+//		
+//	GUI.enabled = !capFpsOn;
+//		GUI.Label(new Rect(20, 50, 120, 20), "Reduce Framerate");
+//		capFps = GUI.HorizontalSlider(new Rect (20, 80, 150, 30), capFps, 60.0f, 10.0f);
+//		GUI.color = Color.gray;
+//		GUI.Label(new Rect(80, 95, 100, 20), capFps.ToString("0"));
+//		GUI.color = Color.white;
+//		GUI.Label(new Rect(20, 90, 200, 20), "Max");
+//		GUI.Label(new Rect(150, 90, 200, 20), "Min");
+//		GUI.color = Color.red;
+//		GUI.Label(new Rect(20, 120, 200, 20), "WARNING! Unstable");
+//		GUI.color = Color.white;
+//	GUI.enabled = true;
+//		
+//		GUI.EndGroup();
 		
 		
 		
 		
 		// Connect to RehabNet Social Network
-			GUI.BeginGroup (new Rect ((Screen.width/2-110)-KinectGUI.gone, (Screen.height/2 - 240), 220, 160));
-		GUI.color = Color.gray;
-		GUI.Box (new Rect (0,0,220,160), "RehabNet Social Network");
-		GUI.color = Color.white;
-		
-	GUI.enabled = logged;//rehablogin;
-		
-		GUI.Label(new Rect(10, 40, 200, 20), "Username");
-		username = GUI.TextField (new Rect (80, 40, 50, 20), username);
-		
-		GUI.Label(new Rect(10, 70, 200, 20), "Password");
-		password = GUI.PasswordField(new Rect(80, 70, 120, 20), password, "*"[0], 25);
-	
+//		GUI.BeginGroup (new Rect ((Screen.width/2-110)-KinectGUI.gone, (Screen.height/2 - 240), 220, 160));
+//		GUI.color = Color.gray;
+//		GUI.Box (new Rect (0,0,220,160), "RehabNet Social Network");
+//		GUI.color = Color.white;
+//		
+//	GUI.enabled = logged;//rehablogin;
+//		
+//		GUI.Label(new Rect(10, 40, 200, 20), "Username");
+//		username = GUI.TextField (new Rect (80, 40, 50, 20), username);
+//		
+//		GUI.Label(new Rect(10, 70, 200, 20), "Password");
+//		password = GUI.PasswordField(new Rect(80, 70, 120, 20), password, "*"[0], 25);
+//	
+////	GUI.enabled = true;
+//		
+//		if(!logged)
+//		{
+//			if (GUI.Button (new Rect (60, 110, 90, 30), "Login")) 
+//			{
+//				//loged in
+//				logged=true;
+//			}
+//		}
+//		else{
+//			if (GUI.Button (new Rect (60, 110, 90, 30), "Logout")) 
+//			{
+//				//loged out
+//				logged=false;
+//			}
+//		}
+//		
 //	GUI.enabled = true;
-		
-		if(!logged)
-		{
-			if (GUI.Button (new Rect (60, 110, 90, 30), "Login")) 
-			{
-				//loged in
-				logged=true;
-			}
-		}
-		else{
-			if (GUI.Button (new Rect (60, 110, 90, 30), "Logout")) 
-			{
-				//loged out
-				logged=false;
-			}
-		}
-		
-	GUI.enabled = true;
-		
-		GUI.EndGroup();
+//		
+//		GUI.EndGroup();
 		
 		}//options menu				
 	}

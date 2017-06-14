@@ -23,7 +23,8 @@ public class Loadlevel : MonoBehaviour {
         yield return new WaitForSeconds(2);
 		Application.LoadLevel(1);
     }
-	
+
+
 	
 	 void OnGUI() 
 	{
@@ -36,7 +37,8 @@ public class Loadlevel : MonoBehaviour {
         GUI.Label(new Rect((Screen.width/2)-50, (Screen.height/2)+50, 100, 20), "Loading...",loadstyle);
 
 
-		GUI.Label(new Rect((Screen.width)-120, (Screen.height)-30, 300, 20), "Version: " + "2017.01");
+	//	GUI.Label(new Rect((Screen.width)-220, (Screen.height)-30, 300, 20), "Last Build: " + BuildDate.ToString());
+		GUI.Label(new Rect((Screen.width)-120, (Screen.height)-30, 300, 20), "Last Build: " + "2017.06");
     }
 
 	

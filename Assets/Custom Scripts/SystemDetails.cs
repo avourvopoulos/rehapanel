@@ -42,7 +42,8 @@ public class SystemDetails : MonoBehaviour {
    	if(MainGuiControls.OptionsMenu)
 	{     
 		// System Info
-			GUI.BeginGroup (new Rect (Screen.width / 2 -200-KinectGUI.gone, (Screen.height / 2 + 170), 400, 170));
+//		GUI.BeginGroup (new Rect (Screen.width / 2 -200-KinectGUI.gone, (Screen.height / 2 + 170), 400, 170));
+		GUI.BeginGroup (new Rect ((Screen.width/2-200)-KinectGUI.gone, (Screen.height/2 - 240), 400, 170));
 		GUI.color = Color.yellow;
 		GUI.Box (new Rect (0,0,400,170), "System Info");
 		GUI.color = Color.gray;
