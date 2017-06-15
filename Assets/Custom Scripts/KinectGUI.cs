@@ -87,8 +87,12 @@ public class KinectGUI : MonoBehaviour {
 	
 	static int getAngle()//camera motor
 	{
-		long angleOut;    
+		long angleOut;   
+		try{
 		NuiWrapper.NuiCameraElevationGetAngle(out angleOut);
+		}catch (DllNotFoundException){
+			angleOut = 0;
+		}
 		return (int)angleOut;
 	}
 
@@ -357,7 +361,7 @@ public class KinectGUI : MonoBehaviour {
 			UDPData.IP = "127.0.0.1";
 			UDPData.port = 1202;
 			UDPData.init();
-			GeneralOptions.policyServer();//start policy server
+			//GeneralOptions.policyServer();//start policy server
 			UDPData.flag=true;
 			Debug.Log("Start UDP");
 		}
@@ -366,15 +370,20 @@ public class KinectGUI : MonoBehaviour {
 	public void startKinect()
 	{
 //		Debug.Log("enable");
-		NuiWrapper.NuiInitialize(1);
-		motorgui = true;
-		smoothgui = false;	
-		MainGuiControls.hideviewers = 0;			
-		ZigSkeleton.mirror=true;				
-		startzigfu = true;
+		try{
+			NuiWrapper.NuiInitialize(1);
+			motorgui = true;
+			smoothgui = false;	
+			MainGuiControls.hideviewers = 0;			
+			ZigSkeleton.mirror=true;				
+			startzigfu = true;
+			//		this._Sensor1.Open();
+			sendULData();
+		}
+		catch(DllNotFoundException){
+			Debug.Log("No Kinect1 found!");
+		}
 
-//		this._Sensor1.Open();
-		sendULData();
 	}
 	
 	public void stopKinect()

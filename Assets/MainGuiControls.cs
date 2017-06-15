@@ -170,6 +170,26 @@ public class MainGuiControls : MonoBehaviour {
 
 	void Start()
 	{
+
+		if (SystemDetails.win8) {
+			//Debug.Log("windows 8");	
+			try
+			{
+				_Sensor = KinectSensor.GetDefault();
+			}
+			catch
+			{
+				Debug.LogError("Cannot init KinectSensor");
+				_Sensor = null;
+			}
+			
+		}
+		else {
+			_Sensor = null;
+			//	Debug.Log("NOT 8");	
+		}
+
+
 		if (HandlePrefs.minWindow == true) {
 			dockWindow();
 		}
@@ -180,22 +200,6 @@ public class MainGuiControls : MonoBehaviour {
 
 	void Update () 
 	{
-		if (SystemDetails.win8) {
-			//Debug.Log("windows 8");	
-			try
-			{
-				_Sensor = KinectSensor.GetDefault();
-			}
-			catch
-			{
-				Debug.LogError("Cannot init KinectSensor");
-			}
-
-		} else {
-			_Sensor = null;
-		//	Debug.Log("NOT 8");	
-				}
-
 
 		if(KinectMenu && !CameraSwitch.avatarView)
 		{
